@@ -25,5 +25,8 @@
             <input type="submit"  value="Log in"/>
         </form>
 
+        <p> Or register here: <a
+            href="register.jsp">Register</a></p>
+
     </jsp:body>
 </t:pagetemplate>
