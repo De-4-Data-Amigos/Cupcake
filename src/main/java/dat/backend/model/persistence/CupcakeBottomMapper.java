@@ -34,5 +34,28 @@ public class CupcakeBottomMapper {
         }
         return cupcakeBottomList;
     }
+    static CupcakeBottom getBottomFromId(int bottom_id, ConnectionPool connectionPool) throws DatabaseException
+    {
+        String sql = "select * from cupcake_bottom where cupcake_bottom_id = ?";
+        CupcakeBottom cupcakeBottom = null;
+        try(Connection connection = connectionPool.getConnection())
+        {
+            try(PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setInt(1, bottom_id);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    int cupcakeBottomId = rs.getInt("cupcake_bottom_id");
+                    int price = rs.getInt("price");
+                    String flavor = rs.getString("flavor");
+                    cupcakeBottom = new CupcakeBottom(cupcakeBottomId, price, flavor);
+                }
+            }
+        }
+        catch (SQLException e)
+        {
+            throw new DatabaseException(e, "Fejl i tilgangen til databasen");
+        }
+        return cupcakeBottom;
+    }
 }
 
