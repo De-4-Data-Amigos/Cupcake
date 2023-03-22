@@ -23,11 +23,11 @@
 
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-        <c:forEach var="bottom" items="${requestScope.AllBottoms}">
-                    <a class="text-start align-middle"> ${bottom.name}</a>
+        <c:forEach var="bottom" items="${sessionScope.AllBottoms}">
+                    <a class="dropdown-item" href="#"> ${bottom.name}</a>
         </c:forEach>
-
-        </div>
+                <a class="dropdown-item" href="#"> test</a>
+            </div>
         </div>
 
         <c:if test="${sessionScope.user != null}">
