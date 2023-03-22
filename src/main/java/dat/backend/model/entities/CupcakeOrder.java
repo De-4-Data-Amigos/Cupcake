@@ -1,22 +1,25 @@
 package dat.backend.model.entities;
 
+import java.sql.Timestamp;
+
 public class CupcakeOrder {
-    private int cupecakeOrderId;
+    private int cupcakeOrderId;
     private int orderId;
     private int price;
     private int cupcakeTopId;
-    private int cupecakeBottomId;
+    private int cupcakeBottomId;
 
-    public CupcakeOrder(int cupecakeOrderId, int orderId, int price, int cupcakeTopId, int cupecakeBottomId) {
-        this.cupecakeOrderId = cupecakeOrderId;
+    public CupcakeOrder(int cupcakeOrderId, int orderId, int price, int cupcakeTopId, int cupcakeBottomId) {
+        this.cupcakeOrderId = cupcakeOrderId;
         this.orderId = orderId;
         this.price = price;
         this.cupcakeTopId = cupcakeTopId;
-        this.cupecakeBottomId = cupecakeBottomId;
+        this.cupcakeBottomId = cupcakeBottomId;
     }
 
-    public int getCupecakeOrderId() {
-        return cupecakeOrderId;
+
+    public int getCupcakeOrderId() {
+        return cupcakeOrderId;
     }
 
     public int getOrderId() {
@@ -27,8 +30,8 @@ public class CupcakeOrder {
         return cupcakeTopId;
     }
 
-    public int getCupecakeBottomId() {
-        return cupecakeBottomId;
+    public int getCupcakeBottomId() {
+        return cupcakeBottomId;
     }
 
     public int getPrice() {

@@ -1,6 +1,6 @@
 package dat.backend.model.persistence;
 
-import dat.backend.model.entities.CupcakeOrder;
+import dat.backend.model.entities.Order;
 import dat.backend.model.exceptions.DatabaseException;
 
 import java.sql.*;
@@ -10,11 +10,11 @@ import java.util.List;
 public class OrderMapper {
 
 
-    static List<CupcakeOrder> getAllOrders(ConnectionPool connectionPool) throws DatabaseException {
+    static List<Order> getAllOrders(ConnectionPool connectionPool) throws DatabaseException {
 
         String sql = "select * from orders;";
 
-        List<CupcakeOrder> cupcakeOrderList = new ArrayList<>();
+        List<Order> orderList = new ArrayList<>();
 
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
@@ -29,13 +29,13 @@ public class OrderMapper {
 
 
 
-                    CupcakeOrder cupcakeOrder = new CupcakeOrder(cupcakeorderId, orderId, price, cupcakeTopId, cupcakeBottomId);
-                    cupcakeOrderList.add(cupcakeOrder);
+                    Order order = new Order(orderId, totalPrice, timestamp, username, isOrderActive, orderAmount);
+                    orderList.add(order);
                 }
             }
         } catch (SQLException e) {
             throw new DatabaseException(e, "Fejl i tilgangen til databasen");
         }
-        return cupcakeOrderList;
+        return orderList;
     }
 }
