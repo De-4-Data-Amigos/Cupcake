@@ -2,7 +2,7 @@ CREATE DATABASE  IF NOT EXISTS `cupcake` /*!40100 DEFAULT CHARACTER SET utf8mb4 
 USE `cupcake`;
 -- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
 --
--- Host: localhost    Database: cupcake
+-- Host: 127.0.0.1    Database: cupcake
 -- ------------------------------------------------------
 -- Server version	8.0.31
 
@@ -29,7 +29,7 @@ CREATE TABLE `cupcake_bottom` (
   `price` int NOT NULL,
   `flavor` varchar(45) NOT NULL,
   PRIMARY KEY (`cupcake_bottom_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,6 +38,7 @@ CREATE TABLE `cupcake_bottom` (
 
 LOCK TABLES `cupcake_bottom` WRITE;
 /*!40000 ALTER TABLE `cupcake_bottom` DISABLE KEYS */;
+INSERT INTO `cupcake_bottom` VALUES (1,5,'Chocolate'),(2,5,'Vanilla'),(3,5,'Nutmeg'),(4,6,'Pistacio'),(5,7,'Almond');
 /*!40000 ALTER TABLE `cupcake_bottom` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,7 +86,7 @@ CREATE TABLE `cupcake_top` (
   `price` int NOT NULL,
   `flavor` varchar(45) NOT NULL,
   PRIMARY KEY (`cupcake_top_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,6 +95,7 @@ CREATE TABLE `cupcake_top` (
 
 LOCK TABLES `cupcake_top` WRITE;
 /*!40000 ALTER TABLE `cupcake_top` DISABLE KEYS */;
+INSERT INTO `cupcake_top` VALUES (1,5,'Chocolate'),(2,5,'Blueberry'),(3,5,'Rasberry'),(4,6,'Crispy'),(5,6,'Strawberry'),(6,7,'Rum/Raisin'),(7,8,'Orange'),(8,8,'Lemon'),(9,9,'Blue cheese');
 /*!40000 ALTER TABLE `cupcake_top` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -160,4 +162,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-22 10:31:38
+-- Dump completed on 2023-03-22 10:54:04
