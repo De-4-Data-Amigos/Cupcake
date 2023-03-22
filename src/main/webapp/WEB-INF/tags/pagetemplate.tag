@@ -20,7 +20,7 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3c1361">
         <div class="container">
             <a class="navbar-brand" href="index.jsp">
                 <img src="${pageContext.request.contextPath}/images/cupcakepluslogo.png" width="800px;" class="img-fluid"/>
@@ -31,8 +31,8 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">Login</a>
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/register.jsp">Register</a>
+                    <a class="nav-item nav-link" style="color: #ffffff" href="${pageContext.request.contextPath}/login.jsp">Login</a>
+                    <a class="nav-item nav-link" style="color: #ffffff" href="${pageContext.request.contextPath}/register.jsp">Register</a>
 
                     <c:if test="${sessionScope.user != null }">
                         <a class="nav-item nav-link" href="${pageContext.request.contextPath}/logout">Log out</a>
