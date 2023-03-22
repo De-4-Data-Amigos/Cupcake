@@ -15,7 +15,7 @@ public class CupcakeBottomMapper {
 
         String sql = "select * from cupcake_bottom;";
 
-        List<CupcakeBottom> cupcakeBottomList = new ArrayList<>();
+        List<CupcakeBottom> cupcakeBottomList =     new ArrayList<>();
 
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
