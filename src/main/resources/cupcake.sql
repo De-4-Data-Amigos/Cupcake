@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `cupcake` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `cupcake`;
 -- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
 --
 -- Host: localhost    Database: cupcake
@@ -25,11 +27,8 @@ DROP TABLE IF EXISTS `cupcake_bottom`;
 CREATE TABLE `cupcake_bottom` (
   `cupcake_bottom_id` int NOT NULL AUTO_INCREMENT,
   `price` int NOT NULL,
-  `cupcake_order_id` int NOT NULL,
   `flavor` varchar(45) NOT NULL,
-  PRIMARY KEY (`cupcake_bottom_id`),
-  KEY `fk_cupcake_bottom_cupcake_order1_idx` (`cupcake_order_id`),
-  CONSTRAINT `fk_cupcake_bottom_cupcake_order1` FOREIGN KEY (`cupcake_order_id`) REFERENCES `cupcake_order` (`cupcake_order_id`)
+  PRIMARY KEY (`cupcake_bottom_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -52,9 +51,15 @@ DROP TABLE IF EXISTS `cupcake_order`;
 CREATE TABLE `cupcake_order` (
   `cupcake_order_id` int NOT NULL AUTO_INCREMENT,
   `order_id` int NOT NULL,
-  `price` int DEFAULT NULL,
+  `price` int NOT NULL,
+  `cupcake_top_id` int NOT NULL,
+  `cupcake_bottom_id` int NOT NULL,
   PRIMARY KEY (`cupcake_order_id`),
   KEY `fk_cupcake_order_orders1_idx` (`order_id`),
+  KEY `fk_cupcake_order_cupcake_top1_idx` (`cupcake_top_id`),
+  KEY `fk_cupcake_order_cupcake_bottom1_idx` (`cupcake_bottom_id`),
+  CONSTRAINT `fk_cupcake_order_cupcake_bottom1` FOREIGN KEY (`cupcake_bottom_id`) REFERENCES `cupcake_bottom` (`cupcake_bottom_id`),
+  CONSTRAINT `fk_cupcake_order_cupcake_top1` FOREIGN KEY (`cupcake_top_id`) REFERENCES `cupcake_top` (`cupcake_top_id`),
   CONSTRAINT `fk_cupcake_order_orders1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -78,11 +83,8 @@ DROP TABLE IF EXISTS `cupcake_top`;
 CREATE TABLE `cupcake_top` (
   `cupcake_top_id` int NOT NULL AUTO_INCREMENT,
   `price` int NOT NULL,
-  `cupcake_order_id` int NOT NULL,
   `flavor` varchar(45) NOT NULL,
-  PRIMARY KEY (`cupcake_top_id`),
-  KEY `fk_cupcake_top_cupcake_order_idx` (`cupcake_order_id`),
-  CONSTRAINT `fk_cupcake_top_cupcake_order` FOREIGN KEY (`cupcake_order_id`) REFERENCES `cupcake_order` (`cupcake_order_id`)
+  PRIMARY KEY (`cupcake_top_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -158,4 +160,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-21 13:21:09
+-- Dump completed on 2023-03-22 10:31:38
