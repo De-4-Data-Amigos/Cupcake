@@ -43,6 +43,8 @@ public class Index extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("cupcaketops", allTops);
         session.setAttribute("cupcakebottoms", allBottoms);
+
+        request.getRequestDispatcher("index.jsp").forward(request,response);
     }
 
     @Override
