@@ -13,6 +13,6 @@ public class CupcakeBottomFacade
     }
     public static CupcakeBottom getButtomFromId(int bottom_id, ConnectionPool connectionPool) throws DatabaseException
     {
-        return CupcakeBottomMapper.getButtomFromId(bottom_id, connectionPool);
+        return CupcakeBottomMapper.getBottomFromId(bottom_id, connectionPool);
     }
 }
