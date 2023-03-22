@@ -5,11 +5,11 @@
 
 <t:pagetemplate>
     <jsp:attribute name="header">
-         Welcome to the frontpage
+        Velkommen ombord
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-        Welcome to the frontpage
+        Velkommen ombord
     </jsp:attribute>
 
     <jsp:body>
@@ -23,13 +23,7 @@
 
 
 
-        <c:if test="${sessionScope.user == null}">
-            <p class="bolded">You are not logged in yet. <p/>
-            <p> You can do it here: <a
-                    href="login.jsp">Login</a></p>
-            <p> Or register here: <a
-                    href="register.jsp">Register</a></p>
-        </c:if>
+   
 
     </jsp:body>
 
