@@ -51,30 +51,35 @@
 </div>
 
 <!-- Footer -->
-<div class="container mt-3">
+<div class="container mt-4">
     <hr/>
-    <div class="row mt-4">
+    <div class="row mt-3">
         <div class="col">
-            <h5>VIRKSOMHEDS­INFORMATION</h5><br>
+            <h5>VIRKSOMHEDS<br>
+                INFORMATION</h5>
             Olsker Cupcakes<br>
             Rønnevej 51. Olsker<br>
                 3770. Allinge<br>
             CVR: 28456722
         </div>
         <div class="col">
-            <h5>OMOs</h5>
-            Omos
+            <h5>OMOS</h5><br>
+            OmOs
         </div>
         <div class="col">
             <h5>KONTAKT OS</h5><br/>
             Email: info@olskercupcakes.dk<br>
             Tlf.nr: +4543434343
         </div>
+
+    <div class="col">
+    <img src="images/facebook.png" width="30px;" class="img-fluid"/>
+    <img src="images/insta.png" width="30px;" class="img-fluid"/>
+    <img src="images/linkedin.png" width="30px;" class="img-fluid"/>
     </div>
-
 </div>
 
-</div>
+
 
 <!-- Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

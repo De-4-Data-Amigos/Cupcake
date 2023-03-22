@@ -34,7 +34,7 @@ public class CupcakeBottomMapper {
         }
         return cupcakeBottomList;
     }
-    static CupcakeBottom getBottomFromId(int bottom_id, ConnectionPool connectionPool) throws DatabaseException
+    public static CupcakeBottom getBottomFromId(int bottom_id, ConnectionPool connectionPool) throws DatabaseException
     {
         String sql = "select * from cupcake_bottom where cupcake_bottom_id = ?";
         CupcakeBottom cupcakeBottom = null;
