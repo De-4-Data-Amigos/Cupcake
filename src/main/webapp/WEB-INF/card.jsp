@@ -1,58 +1,56 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Card</title>
-</head>
-<body>
-<div class="card bg-primary text-white rounded-3">
-    <div class="card-body">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h5 class="mb-0">Card details</h5>
-        </div>
-        <p class="small mb-2">Card type</p>
-        <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-mastercard fa-2x me-2"></i></a>
-        <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-visa fa-2x me-2"></i></a>
-        <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-paypal fa-2x"></i></a>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page errorPage="../error.jsp" isErrorPage="false" %>
+<t:pagetemplate>
+    <jsp:attribute name="header">
+         Det her er hvad du har bestilt:
+    </jsp:attribute>
 
-        <form class="mt-4">
-            <div class="form-outline form-white mb-4">
-                <input type="text" id="typeName" class="form-control form-control-lg" siez="17" placeholder="Cardholder's Name">
-                <label class="form-label" for="typeName" style="margin-left: 0px;">Cardholder's Name</label>
-                <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 117.6px;"></div><div class="form-notch-trailing"></div></div></div>
+    <jsp:attribute name="footer">
+        Bestillingsliste:
+    </jsp:attribute>
 
-            <div class="form-outline form-white mb-4">
-                <input type="text" id="typeText" class="form-control form-control-lg" siez="17" placeholder="1234 5678 9012 3457" minlength="19" maxlength="19">
-                <label class="form-label" for="typeText" style="margin-left: 0px;">Card Number</label>
-                <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 84.8px;"></div><div class="form-notch-trailing"></div></div></div>
+    <jsp:body>
 
-            <div class="row mb-4">
-                <div class="col-md-6">
-                    <div class="form-outline form-white">
-                        <input type="text" id="typeExp" class="form-control form-control-lg" placeholder="MM/YYYY" size="7" minlength="7" maxlength="7">
-                        <label class="form-label" for="typeExp" style="margin-left: 0px;">Expiration</label>
-                        <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 64.8px;"></div><div class="form-notch-trailing"></div></div></div>
+        <p>Checkout:</p>
+        <div class="container py-4">
+
+            <div class="row align-items-md-stretch">
+                <div class="col-md-8">
+                    <div class="h-100 p-5 text-white bg-dark rounded-3">
+                        <h2>Change the background</h2>
+                        <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron
+                            look. Then, mix and match with additional component themes and more.</p>
+                        <button class="btn btn-outline-light" type="button">Example button</button>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="form-outline form-white">
-                        <input type="password" id="typeText" class="form-control form-control-lg" placeholder="●●●" size="1" minlength="3" maxlength="3">
-                        <label class="form-label" for="typeText" style="margin-left: 0px;">Cvv</label>
-                        <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 30.4px;"></div><div class="form-notch-trailing"></div></div></div>
+                <div class="col-md-4">
+                    <div class="h-50 p-5 bg-light border rounded-3">
+                        <h2>Add borders</h2>
+                        <p>Or, keep it light and add a border for some added definition to the boundaries of your
+                            content. Be sure to look under the hood at the source HTML here as we've adjusted the
+                            alignment and sizing of both column's content for equal-height.</p>
+                        <button class="btn btn-outline-secondary" type="button">Example button</button>
+                    </div>
+
+                    <div class="h-50 p-5 bg-light border rounded-3">
+                        <h2>Add borders</h2>
+                        <p>Or, keep it light and add a border for some added definition to the boundaries of your
+                            content. Be sure to look under the hood at the source HTML here as we've adjusted the
+                            alignment and sizing of both column's content for equal-height.</p>
+                        <button class="btn btn-outline-secondary" type="button">Example button</button>
+                    </div>
+                    
+
                 </div>
             </div>
 
-        </form>
-
-        <hr class="my-4">
-
-        <div class="d-flex justify-content-between">
-            <p class="mb-2">Subtotal</p>
-            <p class="mb-2">$4798.00</p>
+            <footer class="pt-3 mt-4 text-muted border-top">
+                &copy; 2021
+            </footer>
         </div>
 
-        <div class="d-flex justify-content-between mb-4">
-            <p class="mb-2">Total(Incl. taxes)</p>
-            <p class="mb-2">$4818.00</p>
-        </div>
+    </jsp:body>
 
-</body>
-</html>
+</t:pagetemplate>

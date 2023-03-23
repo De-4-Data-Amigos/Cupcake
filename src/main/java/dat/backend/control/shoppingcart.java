@@ -9,8 +9,8 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "shoppingcard", value = "/shoppingcard")
-public class shoppingcard extends HttpServlet {
+@WebServlet(name = "shoppingcart", value = "/shoppingcart")
+public class shoppingcart extends HttpServlet {
 
         private ConnectionPool connectionPool;
 
@@ -25,9 +25,9 @@ public class shoppingcard extends HttpServlet {
             HttpSession session = request.getSession();
             User user = (User) session.getAttribute("user");
 
-            if(user == null){
+            /*if(user == null){
                 request.getRequestDispatcher("index.jsp").forward(request,response);
-            }
-            request.getRequestDispatcher("card.jsp").forward(request,response);
+            }*/
+            request.getRequestDispatcher("WEB-INF/card.jsp").forward(request,response);
     }
 }
