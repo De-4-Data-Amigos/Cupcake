@@ -28,9 +28,6 @@ public class CupcakeOrderMapper {
                     int price = rs.getInt("price");
                     int cupcakeTopId = rs.getInt("cupcake_top_id");
                     int cupcakeBottomId = rs.getInt("cupcake_bottom_id");
-
-
-
                     CupcakeOrder cupcakeOrder = new CupcakeOrder(cupcakeorderId, orderId, price, cupcakeTopId, cupcakeBottomId);
                     cupcakeOrderList.add(cupcakeOrder);
                 }
@@ -39,5 +36,29 @@ public class CupcakeOrderMapper {
             throw new DatabaseException(e, "Fejl i tilgangen til databasen");
         }
         return cupcakeOrderList;
+    }
+
+    static CupcakeOrder getCupcakeOrderFromOrderId(int order_id, ConnectionPool connectionPool) throws DatabaseException
+    {
+        String sql = "select * from cupcake_order where order_id = ?";
+        CupcakeOrder cupcakeOrder = null;
+        try (Connection connection = connectionPool.getConnection()) {
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setInt(1, order_id);
+
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    int cupcakeorderId = rs.getInt("cupcake_order_id");
+                    int orderId = rs.getInt("order_id");
+                    int price = rs.getInt("price");
+                    int cupcakeTopId = rs.getInt("cupcake_top_id");
+                    int cupcakeBottomId = rs.getInt("cupcake_bottom_id");
+                    cupcakeOrder = new CupcakeOrder(cupcakeorderId, orderId, price, cupcakeTopId, cupcakeBottomId);
+                }
+            }
+        } catch (SQLException e) {
+            throw new DatabaseException(e, "Fejl i tilgangen til databasen");
+        }
+        return cupcakeOrder;
     }
 }
