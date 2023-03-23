@@ -20,20 +20,38 @@
                 <div class="col-md-8">
                     <div class="h-100 p-5 bg-light border rounded-3">
                         <h2>Change the background</h2>
-                        <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron
-                            look. Then, mix and match with additional component themes and more.</p>
+                        <p>${sessionScope.user.username}</p>
                         <button class="btn btn-outline-light" type="button">Example button</button>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="h-50 p-5 bg-light border rounded-3">
-                        <h2>Add borders</h2>
-                       <p> ${sessionScope.user.username}</p>
-                        <button class="btn btn-outline-secondary" type="button">Example button</button>
+                    <div class="h-48 p-5 bg-light border rounded-3">
+                        <c:if test="${sessionScope.user != null}">
+                            <h2>Hej ${sessionScope.user.username}!</h2>
+                        </c:if><br/>
+
+                        <c:if test="${sessionScope.user == null}">
+                            <h2> Har du en bruger? </h2>
+                        </c:if><br/>
+
+
+                        <p>
+                            <c:if test="${sessionScope.user == null}">
+                        <p> Login her: <a href="login.jsp">Login</a></p>
+                        <p> Eller registrere dig her: <a href="register.jsp">Register</a></p>
+                        </c:if>
+
+
+                        <c:if test="${sessionScope.user != null}">
+                            Her er din saldo:
+                        </c:if><br/>
+
+
+                        <button class="btn btn-outline-secondary mt-4" type="button">Example button</button>
                     </div>
 
 
-                    <div class="h-50 p-5 bg-light border rounded-3">
+                    <div class="h-48 p-5 bg-light border rounded-3 mt-2">
                         <h2>Add borders</h2>
                         <p>Or, keep it light and add a border for some added definition to the boundaries of your
                             content. Be sure to look under the hood at the source HTML here as we've adjusted the
