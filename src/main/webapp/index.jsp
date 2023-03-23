@@ -15,24 +15,32 @@
     <jsp:body>
 
         <p> Øens bedste cupcakes. Vælg og bestil her: </p>
+        <div>
+            <form method="post">
+                <select class="form-select" aria-label="Default select example" name="bottom">
+                    <option selected>Vælg en bund</option>
+                    <c:forEach var="bottom" items="${sessionScope.cupcakebottoms}">
+                        <option value="${bottom.cupcakeBottomId}">${bottom.flavor} - ${bottom.price},-</option>
+                    </c:forEach>
+                </select>
+                <select class="form-select" aria-label="Default select example" name="top">
+                    <option selected>Vælg en top</option>
+                    <c:forEach var="top" items="${sessionScope.cupcaketops}">
+                        <option value="${top.cupcakeTopId}">${top.flavor} - ${top.price},-</option>
+                    </c:forEach>
+                </select>
+                <button formaction="AddCupcakeOrder" type="submit"
+                        class="ms-2 btn btn-outline-success btm-sm col-2">Læg i kurven
+                </button>
+            </form>
 
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown button
-            </button>
-            <ul class="dropdown-menu">
-                <c:forEach var="bottom" items="${sessionScope.cupcakebottoms}">
-                    <li><a class="dropdown-item" href="#">${bottom.flavor}>${bottom.price}</a></li>
-                </c:forEach>
-
-            </ul>
         </div>
+
 
 
         <c:if test="${sessionScope.user != null}">
             <p>You are logged in with the role of "${sessionScope.user.role}".</p>
         </c:if>
-        
 
     </jsp:body>
 

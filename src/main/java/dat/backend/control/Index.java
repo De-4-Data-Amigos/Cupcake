@@ -50,6 +50,30 @@ public class Index extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        String bottomParameter = request.getParameter("bottom");
+        String topParameter = request.getParameter("top");
+        if(bottomParameter == null && topParameter == null){
+            request.getRequestDispatcher("index.jsp").forward(request,response);
+        }
 
-}
+
+        if(bottomParameter == null){
+            request.getRequestDispatcher("index.jsp").forward(request,response);
+        }
+        int bottomId = Integer.parseInt(bottomParameter);
+        CupcakeBottom bottom = null;
+        try {
+            bottom = CupcakeBottomFacade.getButtomFromId(bottomId, connectionPool);
+        } catch (DatabaseException e) {
+            e.printStackTrace();
+        }
+        request.setAttribute("cupcake_bottom", bottom);
+
+        if(topParameter == null){
+            request.getRequestDispatcher("index.jsp").forward(request,response);
+        }
+        int topId = Integer.parseInt(topParameter);
+
+
+    }
 }
