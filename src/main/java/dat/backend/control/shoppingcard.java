@@ -28,5 +28,6 @@ public class shoppingcard extends HttpServlet {
             if(user == null){
                 request.getRequestDispatcher("index.jsp").forward(request,response);
             }
+            request.getRequestDispatcher("card.jsp").forward(request,response);
     }
 }
