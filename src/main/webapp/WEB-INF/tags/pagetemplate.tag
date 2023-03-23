@@ -35,7 +35,7 @@
                     <a class="nav-item nav-link" style="color: #ffffff" href="${pageContext.request.contextPath}/register.jsp">Register</a>
 
                     <c:if test="${sessionScope.user != null }">
-                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/logout">Log out</a>
+                        <a class="nav-item nav-link" style="color: white" href="${pageContext.request.contextPath}/logout">Log out</a>
                     </c:if>
                 </div>
             </div>
@@ -51,7 +51,7 @@
 </div>
 
 <!-- Footer -->
-<div class="container mt-4">
+<div class="container mt-3">
     <hr/>
     <div class="row mt-3">
         <div class="col">
