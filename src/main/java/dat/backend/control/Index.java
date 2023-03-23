@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "index", urlPatterns = {"/index"})
+@WebServlet(name = "index", urlPatterns = {"/"})
 public class Index extends HttpServlet {
 
     private ConnectionPool connectionPool;

@@ -17,52 +17,15 @@
         <p> Øens bedste cupcakes. Vælg og bestil her: </p>
 
         <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuBut" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Bottoms
-        </button>
-
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-
-        <c:forEach var="bottom" items="${sessionScope.AllBottoms}">
-                    <a class="dropdown-item" href="#"> ${bottom.name}</a>
-        </c:forEach>
-                <a class="dropdown-item" href="#"> test</a>
-            </div>
-        </div>
-<br>
-<br>
-<br>
-        <div class="row mt-3">
-        <div class="col">
-        <form action="info" method="get">
-            <select name="bottom">
-                <option value="bottom">Vælg bund</option>
-                <c:forEach var="bottom" items="${sessionScope.AllBottoms}">
-                    <option value="${bottom.flavor}>${bottom.price}"></option>
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown button
+            </button>
+            <ul class="dropdown-menu">
+                <c:forEach var="bottom" items="${sessionScope.cupcakebottoms}">
+                    <li><a class="dropdown-item" href="#">${bottom.flavor}>${bottom.price}</a></li>
                 </c:forEach>
-            </select>
-            <br>
-            <br>
-            <input type="submit" value="Vælg">
-        </form>
 
-        <br>
-        <br>
-        </div>
-
-        <div class="col">
-        <form action="info" method="get">
-            <select name="top">
-                <option value="top">Vælg Top</option>
-                <c:forEach var="top" items="${sessionScope.getAllTops}">
-                    <option value=">${top.flavor}>${top.price}"></option>
-                </c:forEach>
-            </select>
-            <br>
-            <br>
-            <input type="submit" value="Vælg">
-        </form>
-        </div>
+            </ul>
         </div>
 
 
