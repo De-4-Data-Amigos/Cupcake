@@ -7,12 +7,41 @@ public class User
     private String username;
     private String password;
     private String role;
+    private int saldo;
+    private String email;
+    private String guest;
 
-    public User(String username, String password, String role)
-    {
+    public User(String username, String password, String role, int saldo, String email, String guest) {
         this.username = username;
         this.password = password;
         this.role = role;
+        this.saldo = saldo;
+        this.email = email;
+        this.guest = guest;
+    }
+
+    public int getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(int saldo) {
+        this.saldo = saldo;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getGuest() {
+        return guest;
+    }
+
+    public void setGuest(String guest) {
+        this.guest = guest;
     }
 
     public String getUsername()
@@ -46,28 +75,26 @@ public class User
     }
 
     @Override
-    public boolean equals(Object o)
-    {
+    public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof User)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return getUsername().equals(user.getUsername()) && getPassword().equals(user.getPassword()) &&
-                getRole().equals(user.getRole());
+        return username.equals(user.username) && password.equals(user.password) && role.equals(user.role) && email.equals(user.email);
     }
 
     @Override
-    public int hashCode()
-    {
-        return Objects.hash(getUsername(), getPassword(), getRole());
+    public int hashCode() {
+        return Objects.hash(username, password, role, email);
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "User{" +
-                "brugerNavn='" + username + '\'' +
-                ", kodeord='" + password + '\'' +
-                ", rolle='" + role + '\'' +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
+                ", saldo=" + saldo +
+                ", email='" + email + '\'' +
                 '}';
     }
 }
