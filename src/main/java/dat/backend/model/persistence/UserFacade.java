@@ -10,8 +10,8 @@ public class UserFacade
         return UserMapper.login(username, password, connectionPool);
     }
 
-    public static User createUser(String username, String password, String role, ConnectionPool connectionPool) throws DatabaseException
+    public static User createUser(String username, String password, String role, int saldo, String email, String guest, ConnectionPool connectionPool) throws DatabaseException
     {
-        return UserMapper.createUser(username, password, role, connectionPool);
+        return UserMapper.createUser(username, password, role, saldo, email, guest, connectionPool);
     }
 }
