@@ -2,7 +2,9 @@ package dat.backend.control;
 
 import dat.backend.model.config.ApplicationStart;
 import dat.backend.model.entities.CupcakeBottom;
+import dat.backend.model.entities.CupcakeOrder;
 import dat.backend.model.entities.CupcakeTop;
+import dat.backend.model.entities.Order;
 import dat.backend.model.exceptions.DatabaseException;
 import dat.backend.model.persistence.ConnectionPool;
 import dat.backend.model.persistence.CupcakeBottomFacade;
@@ -19,13 +21,14 @@ import java.util.List;
 public class Index extends HttpServlet {
 
     private ConnectionPool connectionPool;
-
+    private Order currentOrder;
 
 
     @Override
     public void init() throws ServletException
     {
         this.connectionPool = ApplicationStart.getConnectionPool();
+        currentOrder = new Order();
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -43,6 +46,7 @@ public class Index extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("cupcaketops", allTops);
         session.setAttribute("cupcakebottoms", allBottoms);
+        session.setAttribute("current_order", currentOrder);
 
         request.getRequestDispatcher("index.jsp").forward(request,response);
     }

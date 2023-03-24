@@ -11,4 +11,8 @@ public class CupcakeTopFacade
     {
         return CupcakeTopMapper.getAllTops(connectionPool);
     }
+    public static CupcakeTop getTopFromId(int top_id, ConnectionPool connectionPool) throws DatabaseException
+    {
+        return CupcakeTopMapper.getTopFromId(top_id, connectionPool);
+    }
 }

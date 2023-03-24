@@ -16,7 +16,16 @@ public class CupcakeOrder {
         this.cupcakeTopId = cupcakeTopId;
         this.cupcakeBottomId = cupcakeBottomId;
     }
-
+    public CupcakeOrder(int topID, int bottomID, int topPrice, int bottomPrice ){
+        cupcakeTopId = topID;
+        cupcakeBottomId = bottomID;
+        price = topPrice + bottomPrice;
+    }
+    public CupcakeOrder(int topID, int bottomID, int totalPrice ){
+        cupcakeTopId = topID;
+        cupcakeBottomId = bottomID;
+        price = totalPrice;
+    }
 
     public int getCupcakeOrderId() {
         return cupcakeOrderId;
@@ -36,5 +45,11 @@ public class CupcakeOrder {
 
     public int getPrice() {
         return price;
+    }
+    public void setCupcakeTop(int id){
+        cupcakeTopId = id;
+    }
+    public void setCupcakeBottom(int id){
+        cupcakeBottomId = id;
     }
 }
