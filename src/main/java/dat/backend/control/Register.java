@@ -48,7 +48,7 @@ public class Register extends HttpServlet {
 
         try
         {
-            User user = UserFacade.createUser(username, password, "user", 0, "email", "guest", connectionPool);
+            User user = UserFacade.createUser(username, password, "user", 0, "email",  connectionPool);
 
             session = request.getSession();
             session.setAttribute("user", user); // adding user object to session scope

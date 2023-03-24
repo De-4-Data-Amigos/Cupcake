@@ -6,14 +6,15 @@ import dat.backend.model.entities.CupcakeOrder;
 import dat.backend.model.entities.CupcakeTop;
 import dat.backend.model.entities.Order;
 import dat.backend.model.exceptions.DatabaseException;
-import dat.backend.model.persistence.ConnectionPool;
-import dat.backend.model.persistence.CupcakeBottomFacade;
-import dat.backend.model.persistence.CupcakeTopFacade;
+import dat.backend.model.persistence.*;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,7 +49,20 @@ public class Index extends HttpServlet {
         session.setAttribute("cupcakebottoms", allBottoms);
         session.setAttribute("current_order", currentOrder);
 
+
+        Order order = new Order(1,200,Timestamp.valueOf(LocalDateTime.now()), "user",false,1);
+
+        try {
+            OrderFacade.addOrder(connectionPool,order);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (DatabaseException e) {
+            e.printStackTrace();
+        }
+
         request.getRequestDispatcher("index.jsp").forward(request,response);
+
+
     }
 
     @Override
@@ -80,4 +94,5 @@ public class Index extends HttpServlet {
 
 
     }
+
 }
