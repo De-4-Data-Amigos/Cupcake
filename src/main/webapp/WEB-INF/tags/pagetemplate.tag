@@ -32,15 +32,25 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
+<<<<<<< Updated upstream
                     <a class="nav-item nav-link" style="color: #ffffff"
                        href="${pageContext.request.contextPath}/login.jsp">Login</a>
                     <a class="nav-item nav-link" style="color: #ffffff"
                        href="${pageContext.request.contextPath}/register.jsp">Register</a>
+=======
+                    <c:if test="${sessionScope.user == null }">
+                    <a class="nav-item nav-link" style="color: #ffffff" href="${pageContext.request.contextPath}/login.jsp">Login</a>
+                    <a class="nav-item nav-link" style="color: #ffffff" href="${pageContext.request.contextPath}/register.jsp">Register</a>
+                    </c:if>
+>>>>>>> Stashed changes
 
                     <c:if test="${sessionScope.user != null }">
                         <a class="nav-item nav-link" style="color: white"
                            href="${pageContext.request.contextPath}/logout">Log out</a>
                     </c:if>
+
+                    <a class="nav-item nav-link" style="color: #ffffff" href="${pageContext.request.contextPath}/index.jsp">Kurv</a>
+
                 </div>
             </div>
         </div>
