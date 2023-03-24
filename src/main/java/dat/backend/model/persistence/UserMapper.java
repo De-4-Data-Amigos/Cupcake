@@ -30,9 +30,9 @@ class   UserMapper
                     String role = rs.getString("role");
                     int saldo = rs.getInt("saldo");
                     String email= rs.getString("email");
-                    String guest= rs.getString("guest");
 
-                    user = new User(username, password, role,saldo,email,guest);
+
+                    user = new User(username, password, role,saldo,email);
                 } else
                 {
                     throw new DatabaseException("Wrong username or password");
@@ -45,11 +45,11 @@ class   UserMapper
         return user;
     }
 
-    static User createUser(String username, String password, String role, int saldo, String email, String guest, ConnectionPool connectionPool) throws DatabaseException
+    static User createUser(String username, String password, String role, int saldo, String email, ConnectionPool connectionPool) throws DatabaseException
     {
         Logger.getLogger("web").log(Level.INFO, "");
         User user;
-        String sql = "insert into user (username, password, role, saldo, email, guest) values (?,?,?,?,?,?)";
+        String sql = "insert into user (username, password, role, saldo, email) values (?,?,?,?,?)";
         try (Connection connection = connectionPool.getConnection())
         {
             try (PreparedStatement ps = connection.prepareStatement(sql))
@@ -59,11 +59,11 @@ class   UserMapper
                 ps.setString(3, role);
                 ps.setInt(4, saldo);
                 ps.setString(5, email);
-                ps.setString(6, guest);
+
                 int rowsAffected = ps.executeUpdate();
                 if (rowsAffected == 1)
                 {
-                    user = new User(username, password, role,saldo,email,guest);
+                    user = new User(username, password, role,saldo,email);
                 } else
                 {
                     throw new DatabaseException("The user with username = " + username + " could not be inserted into the database");

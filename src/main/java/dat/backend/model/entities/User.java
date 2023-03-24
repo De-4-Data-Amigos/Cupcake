@@ -9,15 +9,15 @@ public class User
     private String role;
     private int saldo;
     private String email;
-    private String guest;
 
-    public User(String username, String password, String role, int saldo, String email, String guest) {
+
+    public User(String username, String password, String role, int saldo, String email) {
         this.username = username;
         this.password = password;
         this.role = role;
         this.saldo = saldo;
         this.email = email;
-        this.guest = guest;
+
     }
 
     public int getSaldo() {
@@ -36,13 +36,8 @@ public class User
         this.email = email;
     }
 
-    public String getGuest() {
-        return guest;
-    }
 
-    public void setGuest(String guest) {
-        this.guest = guest;
-    }
+
 
     public String getUsername()
     {
