@@ -4,7 +4,7 @@
 <%@page errorPage="../error.jsp" isErrorPage="false" %>
 <t:pagetemplate>
     <jsp:attribute name="header">
-         Det her er hvad du har bestilt:
+         Din bestilling:
     </jsp:attribute>
 
     <jsp:attribute name="footer">
@@ -21,7 +21,7 @@
                     <div class="h-100 p-5 bg-light border rounded-3">
                         <h2>Change the background</h2>
                         <p>${sessionScope.user.username}</p>
-                        <button class="btn btn-outline-light" type="button">Example button</button>
+                        <button class="btn btn-outline-light" type="button">Bestil</button>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -47,7 +47,6 @@
                         </c:if><br/>
 
 
-                        <button class="btn btn-outline-secondary mt-4" type="button">Example button</button>
                     </div>
 
 

@@ -14,7 +14,10 @@
 
     <jsp:body>
 
-        <p> Øens bedste cupcakes. Vælg og bestil her: </p>
+        <div>
+            <p class="d-inline"> Øens bedste cupcakes. Vælg og bestil her: </p>
+            <a href="shoppingcart"> <img class="float-right" src="images/shoppingcartlogo.png" width="48" height="48"> </a>
+        </div>
         <div>
             <form method="post">
                 <select class="form-select" aria-label="Default select example" name="bottom">
@@ -35,7 +38,6 @@
             </form>
 
         </div>
-
 
 
         <c:if test="${sessionScope.user != null}">
