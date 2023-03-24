@@ -45,7 +45,7 @@
                     </c:if>
 
                     <a class="nav-item nav-link" style="color: #ffffff"
-                       href="${pageContext.request.contextPath}/index.jsp">Kurv</a>
+                       href="${pageContext.request.contextPath}/shoppingcart"> <img style="color: white" src="images/Bag2.svg" width="32" height="32"> </a>
 
                 </div>
             </div>
