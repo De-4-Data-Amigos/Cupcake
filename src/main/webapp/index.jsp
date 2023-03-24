@@ -16,7 +16,7 @@
 
         <div>
             <p class="d-inline"> Øens bedste cupcakes. Vælg og bestil her: </p>
-            <a href="shoppingcart"> <img class="float-right" src="images/shoppingcartlogo.png" width="48" height="48"> </a>
+            <a style="float:right" href="shoppingcart"> <img class="float-right" src="images/shoppingcartlogo.png" width="48" height="48"> </a>
         </div>
         <div>
             <form method="post">
