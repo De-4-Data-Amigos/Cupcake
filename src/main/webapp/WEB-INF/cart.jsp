@@ -22,7 +22,10 @@
                         <h2>.. og tak fordi du køber lokalt!</h2>
                         <h5>Ordre:</h5>
                             <p>*import samlet ordre*</p>
+                        <form method="get" action="orderconfirmation">
                             <button type="submit" class="btn btn-primary">Bekræft bestilling</button>
+
+                        </form>
                         </div>
 
                     </div>
