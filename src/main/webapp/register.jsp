@@ -21,16 +21,33 @@
             <p>${requestScope.message}</p>
         </c:if>
 
-        <form action="register" method="post">
-            <label for="username">Username: </label>
-            <input type="text" id="username" name="username"/>
-            <label for="password">Password: </label>
-            <input type="password" id="password" name="password"/>
-            <label for="password">Confirm password: </label>
-            <input type="password" id="confirmpassword" name="confirmpassword"/>
-            <input type="submit"  value="register"/>
-        </form>
 
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <form method="post" action="register">
+                        <div class="mb-2">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="confirmPassword" class="form-label">ConfirmPassword</label>
+                            <input type="password" class="form-control" id="confirmPassword" name="confirmpassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br>
 
         <p> Or login here: <a
                 href="login.jsp">Log in</a></p>

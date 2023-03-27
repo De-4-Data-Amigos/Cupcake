@@ -20,7 +20,7 @@
                 <div class="col-md-8">
                     <div class="h-100 p-5 bg-light border rounded-3">
                         <h2>Change the background</h2>
-                        <p>${sessionScope.user.username}</p>
+
                         <button class="btn btn-outline-light" type="button">Bestil</button>
                     </div>
                 </div>

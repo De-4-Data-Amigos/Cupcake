@@ -5,7 +5,9 @@
 
 <t:pagetemplate>
     <jsp:attribute name="header">
-        Velkommen ombord
+
+                Velkommen ombord ${sessionScope.user.username}
+
     </jsp:attribute>
 
     <jsp:attribute name="footer">
@@ -16,7 +18,7 @@
 
         <div>
             <p class="d-inline"> Øens bedste cupcakes. Vælg og bestil her: </p>
-          <!--  <a style="float:right" href="shoppingcart"> <img class="float-right" src="images/shoppingcartlogo.png" width="48" height="48"> </a> -->
+            <!--  <a style="float:right" href="shoppingcart"> <img class="float-right" src="images/shoppingcartlogo.png" width="48" height="48"> </a> -->
         </div>
         <div>
             <form method="post">
@@ -35,12 +37,12 @@
 
                 <br>
                 <button formaction="AddCupcakeOrder" type="submit"
-                        class="ms-2 btn btn-outline-success btm-sm col-2">Læg i kurven
+                        class="btn btn-primary">Læg i kurven
                 </button>
             </form>
 
         </div>
-
+        <br>
 
         <c:if test="${sessionScope.user != null}">
             <p>You are logged in with the role of "${sessionScope.user.role}".</p>

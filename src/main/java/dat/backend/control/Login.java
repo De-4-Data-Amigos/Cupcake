@@ -38,12 +38,14 @@ public class Login extends HttpServlet
         session.setAttribute("user", null); // invalidating user object in session scope
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        String email = (String) request.getSession().getAttribute("email");
 
         try
         {
             User user = UserFacade.login(username, password, connectionPool);
             session = request.getSession();
             session.setAttribute("user", user); // adding user object to session scope
+            session.setAttribute("email", user.getEmail());
             request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
         }
         catch (DatabaseException e)

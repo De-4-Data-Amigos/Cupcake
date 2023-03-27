@@ -40,12 +40,18 @@
                            href="${pageContext.request.contextPath}/register.jsp">Register</a>
                     </c:if>
                     <c:if test="${sessionScope.user != null }">
-                        <a class="nav-item nav-link" style="color: white"
+                        <a class="nav-item nav-link" style="color:  #ffffff"
                            href="${pageContext.request.contextPath}/logout">Log out</a>
                     </c:if>
 
                     <a class="nav-item nav-link" style="color: #ffffff"
-                       href="${pageContext.request.contextPath}/shoppingcart"> <img style="color: white" src="images/Bag2.svg" width="32" height="32"> </a>
+                       href="${pageContext.request.contextPath}/shoppingcart"> <img style="color: white"
+                                                                                    src="images/Bag2.svg" width="32"
+                                                                                    height="32"> </a>
+                    <br>
+                    <div class="position-absolute top-10 end-0">
+                        <h5 style="color: #ffffff"> ${sessionScope.user.email}</h5>
+                    </div>
 
                 </div>
             </div>
