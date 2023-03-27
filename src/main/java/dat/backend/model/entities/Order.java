@@ -67,10 +67,11 @@ public class Order {
         orderAmount++;
     }
 
-    public void setCupcakes(List<CupcakeOrder> cupcakes)
+    public List<CupcakeOrder> getCupcakes()
     {
-        this.cupcakes = cupcakes;
+        return cupcakes;
     }
+
     public void setUser(User user){
         this.username = user.getUsername();
     }

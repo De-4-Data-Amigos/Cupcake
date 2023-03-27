@@ -8,6 +8,8 @@ public class CupcakeOrder {
     private int price;
     private int cupcakeTopId;
     private int cupcakeBottomId;
+    private String cupcakeTopFlavor;
+    private String cupcakeBottomFlavor;
 
     public CupcakeOrder(int cupcakeOrderId, int orderId, int price, int cupcakeTopId, int cupcakeBottomId) {
         this.cupcakeOrderId = cupcakeOrderId;
@@ -41,6 +43,25 @@ public class CupcakeOrder {
 
     public int getCupcakeBottomId() {
         return cupcakeBottomId;
+    }
+
+    public String getCupcakeTopFlavor()
+    {
+        if(cupcakeTopFlavor == null){
+            //Call database
+            
+        }
+
+        return cupcakeTopFlavor;
+    }
+
+    public String getCupcakeBottomFlavor()
+    {
+        if(cupcakeTopFlavor == null){
+            //Call database
+        }
+
+        return cupcakeTopFlavor;
     }
 
     public int getPrice() {
