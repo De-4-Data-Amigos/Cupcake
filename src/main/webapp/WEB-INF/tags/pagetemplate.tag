@@ -22,7 +22,7 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3c1361">
         <div class="container">
-            <a class="navbar-brand" href="index.jsp">
+            <a class="navbar-brand" href="index">
                 <img src="${pageContext.request.contextPath}/images/cupcakepluslogo.png" width="800px;"
                      class="img-fluid"/>
             </a>
