@@ -43,7 +43,7 @@
 
 
                         <c:if test="${sessionScope.user != null}">
-                            Her er din saldo:
+                            Her er din saldo:${sessionScope.user.saldo},-
                         </c:if><br/>
 
 
