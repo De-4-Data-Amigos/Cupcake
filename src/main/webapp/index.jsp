@@ -39,6 +39,14 @@
                 <button formaction="AddCupcakeOrder" type="submit"
                         class="btn btn-primary">Læg i kurven
                 </button>
+
+
+            </form>
+
+            <form method="get">
+                <button formaction="shoppingcart" type="submit"
+                        class="btn btn-primary">Gå til kurven
+                </button>
             </form>
 
         </div>

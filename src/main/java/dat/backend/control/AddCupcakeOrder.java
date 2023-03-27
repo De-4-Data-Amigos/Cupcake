@@ -54,6 +54,6 @@ public class AddCupcakeOrder extends HttpServlet
         Order order = (Order)session.getAttribute("current_order");
         CupcakeOrder cupcakeOrder = new CupcakeOrder(topID, bottomID, totalPrice);
         order.addCupcake(cupcakeOrder);
-        response.sendRedirect("shoppingcart");
+        response.sendRedirect("index");
     }
 }
