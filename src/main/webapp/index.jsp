@@ -16,10 +16,11 @@
 
     <jsp:body>
 
-        <div>
-            <p class="d-inline"> Øens bedste cupcakes. Vælg og bestil her: </p>
-            <!--  <a style="float:right" href="shoppingcart"> <img class="float-right" src="images/shoppingcartlogo.png" width="48" height="48"> </a> -->
-        </div>
+
+        <p class="d-inline"> Øens bedste cupcakes. Vælg og bestil her: </p>
+       <!-- <a style="float:right" href="shoppingcart"> <img class="float-right" src="images/shoppingcartlogo.png"
+                                                         width="48" height="48"> </a> -->
+
         <div>
             <form method="post">
                 <select class="form-select" style="color: #6f42c1" aria-label="Default select example" name="bottom">
