@@ -66,8 +66,5 @@ public class Register extends HttpServlet {
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
     }
-
-
-
 }
 

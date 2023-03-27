@@ -9,7 +9,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "OrderConfirmation", value = "/OrderConfirmation")
+@WebServlet(name = "OrderConfirmation", value = "/orderconfirmation")
 public class OrderConfirmation extends HttpServlet {
 
     private ConnectionPool connectionPool;
@@ -24,7 +24,7 @@ public class OrderConfirmation extends HttpServlet {
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect("OrderConfirmation.jsp");
+        response.sendRedirect("orderconfirmation.jsp");
     }
 
     @Override

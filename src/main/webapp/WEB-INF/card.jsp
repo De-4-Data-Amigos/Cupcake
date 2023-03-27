@@ -8,7 +8,7 @@
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-        Bestillingsliste:
+        Her er din bestilling
     </jsp:attribute>
 
     <jsp:body>
@@ -19,9 +19,10 @@
                 <div class="col-md-8">
                     <div class="h-100 p-5 bg-light border rounded-3">
 
-                        <h2>Her er din bestilling - tak fordi du køber lokalt!</h2>
+                        <h2>.. og tak fordi du køber lokalt!</h2>
+                        <h5>Ordre:</h5>
                             <p>*import samlet ordre*</p>
-                            <button class="btn btn-outline-secondary" type="button" <a href="OrderConfirmation.jsp">Bekræft bestilling</button>
+                            <button type="submit" class="btn btn-primary">Bekræft bestilling</button>
                         </div>
 
                     </div>
