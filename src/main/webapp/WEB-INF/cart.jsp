@@ -4,7 +4,7 @@
 <%@page errorPage="../error.jsp" isErrorPage="false" %>
 <t:pagetemplate>
     <jsp:attribute name="header">
-         Din bestilling:
+         Din bestilling
     </jsp:attribute>
 
     <jsp:attribute name="footer">
@@ -13,15 +13,17 @@
 
     <jsp:body>
 
-        <p>Checkout:</p>
         <div class="container py-4">
 
             <div class="row align-items-md-stretch">
                 <div class="col-md-8">
                     <div class="h-100 p-5 bg-light border rounded-3">
-                        <h2>Change the background</h2>
 
-                        <button class="btn btn-outline-light" type="button">Bestil</button>
+                        <h2>Her er din bestilling - tak fordi du køber lokalt!</h2>
+                            <p>*import samlet ordre*</p>
+                            <button class="btn btn-outline-secondary" type="button" <a href="OrderConfirmation.jsp">Bekræft bestilling</button>
+                        </div>
+
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -43,7 +45,7 @@
 
 
                         <c:if test="${sessionScope.user != null}">
-                            Her er din saldo:
+                            Her er din saldo:${sessionScope.user.saldo},-
                         </c:if><br/>
 
 
