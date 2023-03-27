@@ -49,7 +49,7 @@
                                                                                     src="images/Bag2.svg" width="32"
                                                                                     height="32"> </a>
                     <br>
-                    <div class="position-absolute top-10 end-0">
+                    <div class="position-absolute top-50 end-0 mt-5">
                         <h5 style="color: #ffffff"> ${sessionScope.user.email}</h5>
                     </div>
 

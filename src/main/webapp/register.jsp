@@ -48,9 +48,10 @@
             </div>
         </div>
         <br>
-
+<div class="d-inline">
         <p> Or login here: <a
                 href="login.jsp">Log in</a></p>
+        </div>
 
     </jsp:body>
 </t:pagetemplate>
