@@ -21,6 +21,26 @@
 
                         <h2>Her er din bestilling - tak fordi du køber lokalt!</h2>
                         <p>*import samlet ordre*</p>
+                        <form method="post">
+                            <table class="table table-striped mt-4">
+                                <c:forEach var="cupcake" items="${sessionScope.current_order.cupcakes}">
+                                        <tr>
+                                            <td class="text-start align-middle"> ${cupcake.}</td>
+                                            <td class="text-center align-middle">${item.created}</td>
+                                            <td class="text-end">
+                                                <button formaction="additem" type="submit"
+                                                        class="ms-2 btn btn-outline-success btm-sm col-2" name="action"
+                                                        value="undo-${item.itemId}">Undo
+                                                </button>
+                                                <button formaction="additem" type="submit"
+                                                        class="ms-2 btn btn-outline-danger btm-sm col-2" name="action"
+                                                        value="delete-${item.itemId}">Delete
+                                                </button>
+                                            </td>
+                                        </tr>
+                                </c:forEach>
+                            </table>
+                        </form>
 
 
 
