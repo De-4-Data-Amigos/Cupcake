@@ -28,6 +28,6 @@ public class shoppingcart extends HttpServlet {
             /*if(user == null){
                 request.getRequestDispatcher("index.jsp").forward(request,response);
             }*/
-            request.getRequestDispatcher("WEB-INF/card.jsp").forward(request,response);
+            request.getRequestDispatcher("WEB-INF/cart.jsp").forward(request,response);
     }
 }
