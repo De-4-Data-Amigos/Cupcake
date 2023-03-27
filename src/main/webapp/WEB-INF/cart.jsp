@@ -21,7 +21,7 @@
 
                         <h2>Her er din bestilling - tak fordi du køber lokalt!</h2>
                         <p>*import samlet ordre*</p>
-                        <!-- <button class="btn btn-outline-secondary" type="button" > <a href="OrderConfirmation.jsp">Bekræft bestilling</button>-->
+
 
 
                     </div>
@@ -54,12 +54,15 @@
 
 
                     <div class="h-48 p-5 bg-light border rounded-3 mt-2">
-                        <h2>Add borders</h2>
-                        <p>Or, keep it light and add a border for some added definition to the boundaries of your
-                            content. Be sure to look under the hood at the source HTML here as we've adjusted the
-                            alignment and sizing of both column's content for equal-height.</p>
-                        <button class="btn btn-outline-secondary" type="button">Example button</button>
+                        <h5>Pris:   ${sessionScope.current_order.totalPrice} kr. </h5>
+                        <h5>Moms udgør:   ${sessionScope.current_order.totalPrice*0.20} kr. </h5>
+                        <div class="spacer bg-dark border-2 border-top border-dark"></div>
+                        <h5>At betale: ${sessionScope.current_order.totalPrice} kr. </h5>
+                        <h5></h5>
+                        <form method="get" action="orderconfirmation">
+                            <button type="submit" class="btn btn-success">Bekræft bestilling</button>
                     </div>
+
 
 
                 </div>
