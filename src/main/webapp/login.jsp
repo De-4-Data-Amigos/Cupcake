@@ -31,7 +31,8 @@
                             <input type="password" class="form-control" id="password" name="password" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Login</button>
-                    </form>
+                    </form><br/>
+                    <p> Or register here: <a href="register.jsp">Register</a></p>
                 </div>
             </div>
         </div>
@@ -46,8 +47,7 @@
              </form>--%>
 
 
-        <p> Or register here: <a
-                href="register.jsp">Register</a></p>
+
 
     </jsp:body>
 </t:pagetemplate>
