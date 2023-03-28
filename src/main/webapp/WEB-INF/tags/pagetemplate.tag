@@ -56,7 +56,7 @@
 
                     <c:if test="${sessionScope.user.role.equalsIgnoreCase(\"admin\")}">
                         <div class="position-absolute top-50 end-0 mt-4">
-                            <a href="WEB-INF/admin.jsp">
+                            <a href="admin">
                                 <h5 style="color: #ffffff"> ${sessionScope.user.role}</h5></a>
                         </div>
                     </c:if>
