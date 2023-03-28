@@ -40,6 +40,7 @@
                     </table>
                 </form>
 
+                <h5><em>En ordrebekræftelse er sendt til din email.</em></h5>
 
             </div>
 
