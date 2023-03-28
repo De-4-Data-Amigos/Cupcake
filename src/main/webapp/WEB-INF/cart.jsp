@@ -29,10 +29,6 @@
                                             <td class="text-center align-middle">${item.created}</td>
                                             <td class="text-end">
                                                 <button formaction="additem" type="submit"
-                                                        class="ms-2 btn btn-outline-success btm-sm col-2" name="action"
-                                                        value="undo-${item.itemId}">Undo
-                                                </button>
-                                                <button formaction="additem" type="submit"
                                                         class="ms-2 btn btn-outline-danger btm-sm col-2" name="action"
                                                         value="delete-${item.itemId}">Delete
                                                 </button>
