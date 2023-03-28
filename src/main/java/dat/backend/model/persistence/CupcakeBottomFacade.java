@@ -15,4 +15,8 @@ public class CupcakeBottomFacade
     {
         return CupcakeBottomMapper.getBottomFromId(bottom_id, connectionPool);
     }
+    public static String getBottomFlavorFromId(int bottom_id, ConnectionPool connectionPool) throws DatabaseException
+    {
+        return CupcakeBottomMapper.getBottomFlavorFromId(bottom_id, connectionPool);
+    }
 }

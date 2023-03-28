@@ -1,5 +1,12 @@
 package dat.backend.model.entities;
 
+import dat.backend.model.config.ApplicationStart;
+import dat.backend.model.exceptions.DatabaseException;
+import dat.backend.model.persistence.ConnectionPool;
+import dat.backend.model.persistence.CupcakeBottomFacade;
+import dat.backend.model.persistence.CupcakeBottomMapper;
+import dat.backend.model.persistence.CupcakeTopFacade;
+
 import java.sql.Timestamp;
 
 public class CupcakeOrder {
@@ -45,20 +52,21 @@ public class CupcakeOrder {
         return cupcakeBottomId;
     }
 
-    public String getCupcakeTopFlavor()
+    public String getCupcakeTopFlavor() throws DatabaseException
     {
         if(cupcakeTopFlavor == null){
-            //Call database
-            
+            ConnectionPool connectionPool = ApplicationStart.getConnectionPool();
+            cupcakeTopFlavor = CupcakeTopFacade.getTopFlavorFromId(cupcakeTopId, connectionPool);
         }
 
         return cupcakeTopFlavor;
     }
 
-    public String getCupcakeBottomFlavor()
+    public String getCupcakeBottomFlavor() throws DatabaseException
     {
         if(cupcakeTopFlavor == null){
-            //Call database
+            ConnectionPool connectionPool = ApplicationStart.getConnectionPool();
+            cupcakeBottomFlavor = CupcakeBottomFacade.getBottomFlavorFromId(cupcakeBottomId, connectionPool);
         }
 
         return cupcakeTopFlavor;

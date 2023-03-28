@@ -34,7 +34,7 @@ public class CupcakeBottomMapper {
         }
         return cupcakeBottomList;
     }
-    public static CupcakeBottom getBottomFromId(int bottom_id, ConnectionPool connectionPool) throws DatabaseException
+    static CupcakeBottom getBottomFromId(int bottom_id, ConnectionPool connectionPool) throws DatabaseException
     {
         String sql = "select * from cupcake_bottom where cupcake_bottom_id = ?";
         CupcakeBottom cupcakeBottom = null;
@@ -56,6 +56,27 @@ public class CupcakeBottomMapper {
             throw new DatabaseException(e, "Fejl i tilgangen til databasen");
         }
         return cupcakeBottom;
+    }
+    static String getBottomFlavorFromId(int bottom_id, ConnectionPool connectionPool) throws DatabaseException
+    {
+        String sql = "select flavor from cupcake_bottom where cupcake_bottom_id = ?";
+        String flavor = null;
+        try(Connection connection = connectionPool.getConnection())
+        {
+            try(PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setInt(1, bottom_id);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    flavor = rs.getString("flavor");
+
+                }
+            }
+        }
+        catch (SQLException e)
+        {
+            throw new DatabaseException(e, "Fejl i tilgangen til databasen");
+        }
+        return flavor;
     }
 }
 
