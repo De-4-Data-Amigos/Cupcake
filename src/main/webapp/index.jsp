@@ -6,18 +6,19 @@
 <t:pagetemplate>
     <jsp:attribute name="header">
 
-                Velkommen ombord ${sessionScope.user.username}
+                Velkommen til Olsker Cupcakes ${sessionScope.user.username}
 
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-        Velkommen ombord
+        Velkommen til Olsker Cupcakes
     </jsp:attribute>
 
     <jsp:body>
 
 
-        <p class="d-inline"> Øens bedste cupcakes. Vælg og bestil her: </p>
+        <p class="d-inline"><em> Herunder sammensætter du din favorit cupcake:</em></p><br>
+
         <!-- <a style="float:right" href="shoppingcart"> <img class="float-right" src="images/shoppingcartlogo.png"
         width="48" height="48"> </a> -->
 
