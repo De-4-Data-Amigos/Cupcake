@@ -28,7 +28,8 @@
                                     </td>
                                     <td class="text-center align-middle">Top</td>
                                     <td class="text-center align-middle">Bottom</td>
-                                    <td class="text-center align-end">Pris</td>
+                                    <td class="text-center align-middle">Pris</td>
+                                    <td class="text-end"> </td>
                                 </tr>
                                 </thead>
                                 <c:forEach var="cupcake" items="${sessionScope.current_order.cupcakes}">
@@ -36,7 +37,7 @@
                                             <td class="text-start align-middle"> Cupcake  </td>
                                             <td class="text-center align-middle">${cupcake.cupcakeTopFlavor}</td>
                                             <td class="text-center align-middle">${cupcake.cupcakeBottomFlavor}</td>
-                                            <td class="text-end align-middle">${cupcake.price} kr. </td>
+                                            <td class="text-center align-middle">${cupcake.price} kr. </td>
                                             <td class="text-end">
                                                 <button formaction="additem" type="submit"
                                                         class="ms-2 btn btn-primary btm-sm col-2" name="action"

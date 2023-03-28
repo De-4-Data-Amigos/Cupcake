@@ -23,7 +23,7 @@
                         <tr>
                             <td class="text-start align-middle"> Cupcake
                             </td>
-                            <td class="text-center align-end">Top</td>
+                            <td class="text-center align-middle">Top</td>
                             <td class="text-center align-middle">Bottom</td>
                         </tr>
 
