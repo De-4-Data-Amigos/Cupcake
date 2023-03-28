@@ -28,9 +28,9 @@
                         </tr>
 
                         </thead>
-                        <c:forEach var="cupcake" items="${sessionScope.current_order.cupcakes}">
+                        <c:forEach var="cupcake" items="${sessionScope.current_order.cupcakes}" varStatus="loop">
                             <tr>
-                                <td class="text-start align-middle"> Cupcake - </td>
+                                <td class="text-start align-middle"> Cupcake #${loop.count} </td>
                                 <td class="text-center align-middle">${cupcake.cupcakeTopFlavor}</td>
                                 <td class="text-center align-middle">${cupcake.cupcakeBottomFlavor}</td>
                                 <td class="text-end">
@@ -52,7 +52,6 @@
                 <div class="col text-end">
                     <img src="images/facebook.png" width="30px;" class="img-fluid"/>
                     <img src="images/insta.png" width="30px;" class="img-fluid"/>
-                    <img src="images/linkedin.png" width="30px;" class="img-fluid"/>
                 </div>
             </div>
 
