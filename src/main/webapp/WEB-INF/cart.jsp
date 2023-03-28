@@ -40,7 +40,7 @@
                                             <td class="text-center align-middle">${cupcake.price} kr. </td>
                                             <td class="text-end">
                                                 <button formaction="additem" type="submit"
-                                                        class="ms-2 btn btn-primary btm-sm col-2" name="action"
+                                                        class="ms-2 btn btn-primary btm-sm col-5" name="action"
                                                         value="undo-${item.itemId}">Fjern
                                                 </button>
                                             </td>

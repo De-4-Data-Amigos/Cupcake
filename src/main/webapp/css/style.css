@@ -30,4 +30,8 @@ th, td {
     border-radius: .3rem;
 }
 
+:root{
+    --bs-purple: #6f42c1;
+}
+
 

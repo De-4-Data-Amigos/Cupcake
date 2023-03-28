@@ -18,8 +18,8 @@
 
 
         <p class="d-inline"> Øens bedste cupcakes. Vælg og bestil her: </p>
-       <!-- <a style="float:right" href="shoppingcart"> <img class="float-right" src="images/shoppingcartlogo.png"
-                                                         width="48" height="48"> </a> -->
+        <!-- <a style="float:right" href="shoppingcart"> <img class="float-right" src="images/shoppingcartlogo.png"
+        width="48" height="48"> </a> -->
 
         <div>
             <form method="post">
@@ -36,19 +36,22 @@
                     </c:forEach>
                 </select>
 
-                <br>
-                <button formaction="AddCupcakeOrder" type="submit"
-                        class="btn btn-primary">Læg i kurven
-                </button>
 
 
+                <div class="btn-toolbar justify-content-between mt-4" role="toolbar">
+                    <div class="btn-group" role="group">
+                        <button formaction="AddCupcakeOrder" type="submit"
+                                class="btn btn-primary">Læg i kurven
+                        </button>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button formmethod="get" formaction="shoppingcart" type="submit"
+                                class="btn btn-primary">Gå til kurven
+                        </button>
+                    </div>
+                </div>
             </form>
 
-            <form method="get">
-                <button formaction="shoppingcart" type="submit"
-                        class="btn btn-primary">Gå til kurven
-                </button>
-            </form>
 
         </div>
         <br>
