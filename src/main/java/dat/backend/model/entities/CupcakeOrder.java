@@ -64,12 +64,12 @@ public class CupcakeOrder {
 
     public String getCupcakeBottomFlavor() throws DatabaseException
     {
-        if(cupcakeTopFlavor == null){
+        if(cupcakeBottomFlavor == null){
             ConnectionPool connectionPool = ApplicationStart.getConnectionPool();
             cupcakeBottomFlavor = CupcakeBottomFacade.getBottomFlavorFromId(cupcakeBottomId, connectionPool);
         }
 
-        return cupcakeTopFlavor;
+        return cupcakeBottomFlavor;
     }
 
     public int getPrice() {
