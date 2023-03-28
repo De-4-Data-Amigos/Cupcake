@@ -21,7 +21,7 @@
 
                         <h2>Her er din bestilling - tak fordi du køber lokalt!</h2>
                         <form method="post">
-                            <table class="table table-striped mt-4">
+                            <table class="table table-striped mt-4" style="color: #6f42c1">
                                 <thead>
                                 <tr>
                                     <td class="text-start align-middle"> Cupcake
@@ -34,11 +34,13 @@
                                 </thead>
                                 <c:forEach var="cupcake" items="${sessionScope.current_order.cupcakes}" varStatus="loop">
                                         <tr>
-                                            <td class="text-start align-middle"> Cupcake #${loop.count} </td>
+                                            <td class="text-start align-middle"> Cupcake  </td>
                                             <td class="text-center align-middle">${cupcake.cupcakeTopFlavor}</td>
                                             <td class="text-center align-middle">${cupcake.cupcakeBottomFlavor}</td>
                                             <td class="text-center align-middle">${cupcake.price} kr. </td>
                                             <td class="text-end">
+
+
                                                 <button formaction="removecupcakeorder" type="submit"
                                                         class="ms-2 btn btn-primary btm-sm col-5" name="index"
                                                         value="${loop.index}">Fjern
@@ -74,7 +76,7 @@
 
 
                         <c:if test="${sessionScope.user != null}">
-                            Her er din nuværende saldo:             ${sessionScope.user.saldo},-
+                            Her er din nuværende saldo:${sessionScope.user.saldo},-
                         </c:if><br/>
 
 
@@ -82,8 +84,8 @@
 
 
                     <div class="h-48 p-5 bg-light border rounded-3 mt-2">
-                        <h5>Pris:   ${sessionScope.current_order.totalPrice} kr. </h5>
-                        <h5>Moms udgør:   ${Math.round(sessionScope.current_order.totalPrice*0.20)} kr. </h5>
+                        <h5>Pris:${sessionScope.current_order.totalPrice} kr. </h5>
+                        <h5>Moms udgør:${sessionScope.current_order.totalPrice*0.20} kr. </h5>
                         <div class="spacer bg-dark border-2 border-top border-dark"></div>
                         <h5>At betale: ${sessionScope.current_order.totalPrice} kr. </h5>
 
