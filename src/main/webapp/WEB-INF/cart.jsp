@@ -22,6 +22,15 @@
                         <h2>Her er din bestilling - tak fordi du køber lokalt!</h2>
                         <form method="post">
                             <table class="table table-striped mt-4">
+                                <thead>
+                                <tr>
+                                    <td class="text-start align-middle"> Cupcake
+                                    </td>
+                                    <td class="text-center align-middle">Top</td>
+                                    <td class="text-center align-middle">Bottom</td>
+                                    <td class="text-center align-end">Pris</td>
+                                </tr>
+                                </thead>
                                 <c:forEach var="cupcake" items="${sessionScope.current_order.cupcakes}">
                                         <tr>
                                             <td class="text-start align-middle"> Cupcake  </td>

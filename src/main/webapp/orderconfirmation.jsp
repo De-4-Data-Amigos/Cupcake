@@ -19,6 +19,15 @@
                 <h2>Din samlede ordre til afhentning:</h2>
                 <form method="post">
                     <table class="table table-striped mt-4">
+                        <thead>
+                        <tr>
+                            <td class="text-start align-middle"> Cupcake
+                            </td>
+                            <td class="text-center align-end">Top</td>
+                            <td class="text-center align-middle">Bottom</td>
+                        </tr>
+
+                        </thead>
                         <c:forEach var="cupcake" items="${sessionScope.current_order.cupcakes}">
                             <tr>
                                 <td class="text-start align-middle"> Cupcake - </td>
