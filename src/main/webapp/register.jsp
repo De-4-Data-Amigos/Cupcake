@@ -39,19 +39,22 @@
                             <input type="password" class="form-control" id="password" name="password" required>
                         </div>
                         <div class="mb-2">
-                            <label for="confirmPassword" class="form-label">ConfirmPassword</label>
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
                             <input type="password" class="form-control" id="confirmPassword" name="confirmpassword" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Register</button>
-                    </form>
+                    </form><br/>
+
+                    <div class="d-inline">
+                        <p> Or login here: <a
+                                href="login.jsp">Log in</a></p>
+                    </div>
+
                 </div>
             </div>
         </div>
         <br>
-<div class="d-inline">
-        <p> Or login here: <a
-                href="login.jsp">Log in</a></p>
-        </div>
+
 
     </jsp:body>
 </t:pagetemplate>
