@@ -2,12 +2,14 @@ package dat.backend.control;
 
 import dat.backend.model.config.ApplicationStart;
 import dat.backend.model.entities.User;
+import dat.backend.model.persistence.AdminFacade;
 import dat.backend.model.persistence.ConnectionPool;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet(name = "Admin", value = "/admin")
 public class Admin extends HttpServlet {
@@ -33,7 +35,14 @@ public class Admin extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        User user = (User) request.getSession().getAttribute("user");
+        try {
+            AdminFacade.addMoney(connectionPool,user,10000);
 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        response.sendRedirect("admin");
     }
 }
 
