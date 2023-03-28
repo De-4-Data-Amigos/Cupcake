@@ -24,11 +24,12 @@ public class OrderConfirmation extends HttpServlet {
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect("orderconfirmation.jsp");
+        request.getRequestDispatcher("orderconfirmation.jsp").forward(request,response);
+        //response.sendRedirect("orderconfirmation.jsp");
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        response.sendRedirect("orderconfirmation.jsp");
     }
 }

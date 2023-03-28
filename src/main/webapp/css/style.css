@@ -11,7 +11,7 @@ th, td {
     padding:15px;
 }
 
-spacer {
+.spacer {
     margin: 1rem 0;
     color: inherit;
     background-color: currentColor;
