@@ -76,7 +76,7 @@
 
 
                         <c:if test="${sessionScope.user != null}">
-                            Her er din nuværende saldo:             ${sessionScope.user.saldo},-
+                            Her er din nuværende saldo:${sessionScope.user.saldo},-
                         </c:if><br/>
 
 
@@ -84,8 +84,8 @@
 
 
                     <div class="h-48 p-5 bg-light border rounded-3 mt-2">
-                        <h5>Pris:   ${sessionScope.current_order.totalPrice} kr. </h5>
-                        <h5>Moms udgør:   ${sessionScope.current_order.totalPrice*0.20} kr. </h5>
+                        <h5>Pris:${sessionScope.current_order.totalPrice} kr. </h5>
+                        <h5>Moms udgør:${sessionScope.current_order.totalPrice*0.20} kr. </h5>
                         <div class="spacer bg-dark border-2 border-top border-dark"></div>
                         <h5>At betale: ${sessionScope.current_order.totalPrice} kr. </h5>
 
