@@ -60,11 +60,17 @@ public class Order {
         return orderAmount;
     }
 
-    public void addCupcake(CupcakeOrder cupcake)
+    public int addCupcake(CupcakeOrder cupcake)
     {
         cupcakes.add(cupcake);
         totalPrice += cupcake.getPrice();
         orderAmount++;
+        return cupcakes.indexOf(cupcake);
+    }
+    public void removeCupcake(CupcakeOrder cupcake){
+        cupcakes.remove(cupcake);
+        totalPrice -= cupcake.getPrice();
+        orderAmount--;
     }
 
     public List<CupcakeOrder> getCupcakes()
