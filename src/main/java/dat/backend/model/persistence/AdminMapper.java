@@ -14,7 +14,7 @@ public class AdminMapper {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.setInt(1, money);
                 ps.setString(2, user.getUsername());
-
+                ps.executeUpdate();
 
             } catch (SQLException e) {
                 e.printStackTrace();
