@@ -20,7 +20,6 @@
                     <div class="h-100 p-5 bg-light border rounded-3">
 
                         <h2>Her er din bestilling - tak fordi du køber lokalt!</h2>
-                        <p>*import samlet ordre*</p>
                         <form method="post">
                             <table class="table table-striped mt-4">
                                 <c:forEach var="cupcake" items="${sessionScope.current_order.cupcakes}">
@@ -61,7 +60,7 @@
 
 
                         <c:if test="${sessionScope.user != null}">
-                            Her er din saldo:${sessionScope.user.saldo},-
+                            Her er din nuværende saldo:             ${sessionScope.user.saldo},-
                         </c:if><br/>
 
 
