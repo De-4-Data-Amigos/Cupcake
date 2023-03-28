@@ -21,7 +21,7 @@
 
                         <h2>Her er din bestilling - tak fordi du køber lokalt!</h2>
                         <form method="post">
-                            <table class="table table-striped mt-4">
+                            <table class="table table-striped mt-4" style="color: #6f42c1">
                                 <thead>
                                 <tr>
                                     <td class="text-start align-middle"> Cupcake
@@ -39,6 +39,8 @@
                                             <td class="text-center align-middle">${cupcake.cupcakeBottomFlavor}</td>
                                             <td class="text-center align-middle">${cupcake.price} kr. </td>
                                             <td class="text-end">
+
+
                                                 <button formaction="removecupcakeorder" type="submit"
                                                         class="ms-2 btn btn-primary btm-sm col-5" name="index"
                                                         value="${loop.index}">Fjern
