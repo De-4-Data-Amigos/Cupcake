@@ -8,10 +8,6 @@
          Ordre bekræftet!
     </jsp:attribute>
 
-    <jsp:attribute name="footer">
-        Tak fordi du køber lokalt og støtter Olsker Cupcakes! <3
-    </jsp:attribute>
-
 <jsp:body>
 
     <div class="container py-4">
@@ -28,14 +24,6 @@
                                 <td class="text-start align-middle"> ${cupcake}</td>
                                 <td class="text-center align-middle">${item.created}</td>
                                 <td class="text-end">
-                                    <button formaction="additem" type="submit"
-                                            class="ms-2 btn btn-outline-success btm-sm col-2" name="action"
-                                            value="undo-${item.itemId}">Undo
-                                    </button>
-                                    <button formaction="additem" type="submit"
-                                            class="ms-2 btn btn-outline-danger btm-sm col-2" name="action"
-                                            value="delete-${item.itemId}">Delete
-                                    </button>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -43,15 +31,38 @@
                 </form>
 
 
+            </div>
 
-            <div class="h-48 p-5 bg-light border rounded-3 mt-2">
-                <h2> test jaja </h2>
+        </div>
+        <div class="col-md-4">
+            <div class="h-48 p-5 bg-light border rounded-3">
+                <h5>Tak fordi du køber lokalt og støtter Olsker Cupcakes!</h5><br>
+                <h7>Smid os gerne lidt kærlighed på sociale medier</h7>
+                <div class="col text-end">
+                    <img src="images/facebook.png" width="30px;" class="img-fluid"/>
+                    <img src="images/insta.png" width="30px;" class="img-fluid"/>
+                    <img src="images/linkedin.png" width="30px;" class="img-fluid"/>
+                </div>
             </div>
 
 
-        </div>
-        </div>
-        </div>
+            <div class="h-48 p-5 bg-light border rounded-3 mt-2">
+                <h5>Vidste du.. </h5><br>
+                <h7>.. at Olsker Cupcakes er et lokalt ejet og bæredygtigt bageri?</h7><br>
+                <h7>.. at vi er et sjette generations bageri med rødder tilbage til forrige århundrede?</h7><br>
+                <h7>.. at vi udelukkende bruger økologiske råvarer?</h7>
 
-        </jsp:body>
+            </div>
+
+
+
+        </div>
+    </div>
+
+        <footer class="pt-3 mt-4 text-muted border-top">
+        </footer>
+    </div>
+
+</jsp:body>
+
 </t:pagetemplate>

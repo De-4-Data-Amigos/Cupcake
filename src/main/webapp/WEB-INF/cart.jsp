@@ -28,8 +28,8 @@
                                             <td class="text-start align-middle"> ${cupcake}</td>
                                             <td class="text-end">
                                                 <button formaction="additem" type="submit"
-                                                        class="ms-2 btn btn-outline-danger btm-sm col-2" name="action"
-                                                        value="delete-${item.itemId}">Delete
+                                                        class="ms-2 btn btn-outline-primary btm-sm col-2" name="action"
+                                                        value="undo-${item.itemId}">Fjern
                                                 </button>
                                             </td>
                                         </tr>
