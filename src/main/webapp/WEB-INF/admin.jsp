@@ -14,9 +14,20 @@
     <jsp:body>
 
         <form method="post">
-            <button formaction="admin" type="submit" class="ms-2 btn btn-outline-danger btm-sm col-2">Update Saldo</button>
-        </form>
+            <select class="form-select" style="color: #6f42c1" aria-label="Default select example" name="user">
+                <option selected>Vælg en bruger</option>
+                <c:forEach var="user" items="${requestScope.userList}">
+                    <option value="${user.username}">${user.username} ${user.saldo},-</option>
+                </c:forEach>
+            </select>
 
+            <br>
+            <label for="money" class="form-label">Hvor meget skal det indsættes?</label>
+            <input type="text" class="form-control" id="money" name="money" required> <br/>
+
+            <button formaction="admin" type="submit" class="btn btn-primary">Submit</button>
+
+        </form>
     </jsp:body>
 
 </t:pagetemplate>
