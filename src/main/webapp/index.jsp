@@ -26,13 +26,13 @@
                 <select class="form-select" style="color: #6f42c1" aria-label="Default select example" name="bottom">
                     <option selected>Vælg en bund</option>
                     <c:forEach var="bottom" items="${sessionScope.cupcakebottoms}">
-                        <option value="${bottom.cupcakeBottomId}">${bottom.flavor} - ${bottom.price},-</option>
+                        <option value="${bottom.cupcakeBottomId}">${bottom.flavor} ${bottom.price},-</option>
                     </c:forEach>
                 </select>
                 <select class="form-select" style="color: #6f42c1" aria-label="Default select example" name="top">
                     <option selected>Vælg en top</option>
                     <c:forEach var="top" items="${sessionScope.cupcaketops}">
-                        <option value="${top.cupcakeTopId}">${top.flavor} - ${top.price},-</option>
+                        <option value="${top.cupcakeTopId}">${top.flavor} ${top.price},-</option>
                     </c:forEach>
                 </select>
 
