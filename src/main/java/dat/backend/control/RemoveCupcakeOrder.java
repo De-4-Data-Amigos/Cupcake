@@ -36,28 +36,14 @@ public class RemoveCupcakeOrder extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
-
-        int bottomID = Integer.parseInt(request.getParameter("bottom"));
-        int topID = Integer.parseInt(request.getParameter("top"));
-        CupcakeBottom cupcakeBottom = null;
-        CupcakeTop cupcakeTop = null;
-
-        try {
-            cupcakeBottom = CupcakeBottomFacade.getButtomFromId(bottomID, connectionPool);
-            cupcakeTop = CupcakeTopFacade.getTopFromId(topID, connectionPool);
-        }
-        catch (DatabaseException e)
-        {
-            e.printStackTrace();
-        }
-        int totalPrice = cupcakeTop.getPrice() + cupcakeBottom.getPrice();
+        int index = Integer.parseInt(request.getParameter("index"));
 
         HttpSession session = request.getSession();
         Order order = (Order)session.getAttribute("current_order");
-        CupcakeOrder cupcakeOrder = new CupcakeOrder(topID, bottomID, totalPrice);
-        order.removeCupcake(cupcakeOrder);
-        response.sendRedirect("index");
+
+
+        order.removeCupcake(index);
+        response.sendRedirect("shoppingcart");
 
     }
 }

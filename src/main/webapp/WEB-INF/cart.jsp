@@ -32,16 +32,17 @@
                                     <td class="text-end"> </td>
                                 </tr>
                                 </thead>
-                                <c:forEach var="cupcake" items="${sessionScope.current_order.cupcakes}">
+                                <c:forEach var="cupcake" items="${sessionScope.current_order.cupcakes}" varStatus="loop">
                                         <tr>
                                             <td class="text-start align-middle"> Cupcake  </td>
                                             <td class="text-center align-middle">${cupcake.cupcakeTopFlavor}</td>
                                             <td class="text-center align-middle">${cupcake.cupcakeBottomFlavor}</td>
                                             <td class="text-center align-middle">${cupcake.price} kr. </td>
                                             <td class="text-end">
-                                                <button formaction="additem" type="submit"
-                                                        class="ms-2 btn btn-primary btm-sm col-5" name="action"
-                                                        value="undo-${item.itemId}">Fjern
+                                                <button formaction="removecupcakeorder" type="submit"
+                                                        class="ms-2 btn btn-primary btm-sm col-5" name="index"
+                                                        value="${loop.index}">Fjern
+
                                                 </button>
                                             </td>
                                         </tr>

@@ -67,8 +67,9 @@ public class Order {
         orderAmount++;
         return cupcakes.indexOf(cupcake);
     }
-    public void removeCupcake(CupcakeOrder cupcake){
-        cupcakes.remove(cupcake);
+    public void removeCupcake(int index){
+        CupcakeOrder cupcake = cupcakes.get(index);
+        cupcakes.remove(index);
         totalPrice -= cupcake.getPrice();
         orderAmount--;
     }
