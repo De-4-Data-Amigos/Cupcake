@@ -43,6 +43,15 @@ public class Admin extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        User _user = (User) request.getSession().getAttribute("user");
+        if (!_user.getRole().equalsIgnoreCase("admin")) {
+
+            request.setAttribute("besked", "du er ikke en admin");
+            request.getRequestDispatcher("index").forward(request, response);
+
+        }
+
         String username = request.getParameter("user");
         int money = Integer.parseInt(request.getParameter("money"));
 

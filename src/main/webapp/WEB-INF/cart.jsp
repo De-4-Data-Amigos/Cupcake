@@ -79,7 +79,10 @@
 
 
                         <c:if test="${sessionScope.user != null}">
-                            Her er din nuværende saldo:${sessionScope.user.saldo},-
+                            Her er din nuværende saldo: <strong>${sessionScope.user.saldo},- </strong>
+
+                        <em> <p> <strong>OBS!</strong> - Hvis du har en saldo, bruger vi den først</p></em>
+                            Her er din nye saldo efter dette køb: <u> <strong> ${sessionScope.user.saldo - sessionScope.current_order.totalPrice}</u>,-</strong>
                         </c:if><br/>
 
 
