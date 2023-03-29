@@ -28,6 +28,41 @@
             <button formaction="admin" type="submit" class="btn btn-primary">Submit</button>
 
         </form>
+
+        <form method="get">
+            <table class="table table-striped mt-4">
+                <thead>
+                <tr>
+                    <td class="text-start align-middle" style="color: #6f42c1"><h5>Order ID</h5>
+                    </td>
+                    <td class="text-center align-middle" style="color: #6f42c1"><h5>Total pris</h5>
+                    </td>
+                    <td class="text-center align-middle" style="color: #6f42c1"><h5>Timestamp</h5>
+                    </td>
+                    <td class="text-center align-middle" style="color: #6f42c1"><h5>Username</h5>
+                    </td>
+                    <td class="text-center align-middle" style="color: #6f42c1"><h5>Er order aktiv?</h5>
+                    </td>
+                    <td class="text-center align-middle" style="color: #6f42c1"><h5>Cupcake mængde</h5>
+                    </td>
+                    <td class="text-end"></td>
+                </tr>
+                </thead>
+                <c:forEach var="order" items="${requestScope.orderList}"
+                           varStatus="loop">
+                    <tr>
+                        <td class="text-start align-middle">${order.orderId} </td>
+                        <td class="text-center align-middle">${order.totalPrice}</td>
+                        <td class="text-center align-middle">${order.orderCreationTimestamp}</td>
+                        <td class="text-center align-middle">${order.username}</td>
+                        <td class="text-center align-middle">${order.orderActive}</td>
+                        <td class="text-end align-middle">${order.orderAmount}</td>
+
+                    </tr>
+                </c:forEach>
+            </table>
+
+        </form>
     </jsp:body>
 
 </t:pagetemplate>
