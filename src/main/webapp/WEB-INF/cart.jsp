@@ -86,7 +86,6 @@
                     </div>
                     <div class="h-48 p-5 bg-light border rounded-3 mt-2">
 
-
                         <ul class="list-group mb-3">
                             <li class="list-group-item d-flex justify-content-between lh-sm">
                                 <div>
@@ -119,20 +118,6 @@
                                 <button type="submit" class="btn btn-success">Bekræft bestilling</button>
                             </form>
                     </div>
-
-<%--
-                    <div class="h-48 p-5 bg-light border rounded-3 mt-2">
-                        <h2>Betalingsoversigt</h2><br>
-                        <h6>Pris: ${sessionScope.current_order.totalPrice},- </h6>
-                        <h6>Heraf moms: ${sessionScope.current_order.totalPrice*0.20},- </h6>
-                        <div class="spacer bg-dark border-2 border-top border-dark"></div>
-                        <h5>Pris i alt (inkl. moms): ${sessionScope.current_order.totalPrice},- </h5>
-
-
-                        <form method="get" action="orderconfirmation">
-                            <button type="submit" class="btn btn-success">Bekræft bestilling</button>
-                        </form>
-                    </div>--%>
 
 
 
