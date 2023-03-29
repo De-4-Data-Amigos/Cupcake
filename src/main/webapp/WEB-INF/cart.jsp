@@ -37,7 +37,7 @@
                                 </thead>
                                 <c:forEach var="cupcake" items="${sessionScope.current_order.cupcakes}" varStatus="loop">
                                         <tr>
-                                            <td class="text-start align-middle"> Cupcake </td>
+                                            <td class="text-start align-middle"> Cupcake #${loop.count} </td>
                                             <td class="text-center align-middle">${cupcake.cupcakeTopFlavor}</td>
                                             <td class="text-center align-middle">${cupcake.cupcakeBottomFlavor}</td>
                                             <td class="text-center align-middle">${cupcake.price} kr. </td>
