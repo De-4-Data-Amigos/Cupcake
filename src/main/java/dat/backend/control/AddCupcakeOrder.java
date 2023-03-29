@@ -36,8 +36,18 @@ public class AddCupcakeOrder extends HttpServlet
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        int bottomID = Integer.parseInt(request.getParameter("bottom"));
-        int topID = Integer.parseInt(request.getParameter("top"));
+        int bottomID = -1;
+        int topID = -1;
+        try {
+            bottomID = Integer.parseInt(request.getParameter("bottom"));
+            topID = Integer.parseInt(request.getParameter("top"));
+        }
+        catch (NumberFormatException e ){
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        }
+        if(bottomID == -1 || topID == -1 ){
+            response.sendRedirect("index");
+        }
         CupcakeBottom cupcakeBottom = null;
         CupcakeTop cupcakeTop = null;
         try {
