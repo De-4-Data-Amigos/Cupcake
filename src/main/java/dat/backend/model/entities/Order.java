@@ -34,8 +34,6 @@ public class Order {
         this.orderAmount = 0;
         this.cupcakes = new ArrayList<>();
     }
-
-
     public int getOrderId() {
         return orderId;
     }

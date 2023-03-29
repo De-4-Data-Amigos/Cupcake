@@ -14,6 +14,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.List;
 
 @WebServlet(name = "OrderConfirmation", value = "/orderconfirmation")
@@ -38,9 +39,7 @@ public class OrderConfirmation extends HttpServlet {
             return;
         }
         User user = (User)session.getAttribute("user");
-
         List<CupcakeOrder> cupcakes = order.getCupcakes();
-
         int orderID;
         try {
             orderID = OrderFacade.addOrder(order, connectionPool);
@@ -53,14 +52,12 @@ public class OrderConfirmation extends HttpServlet {
                     user.setSaldo(user.getSaldo()-order.getTotalPrice());
                 }
             }
-
         } catch (DatabaseException e) {
             e.printStackTrace();
         }
-
+        session.setAttribute("confirm_order", order);
         order = new Order();
         session.setAttribute("current_order", order);
-
         request.getRequestDispatcher("orderconfirmation.jsp").forward(request,response);
 
     }
