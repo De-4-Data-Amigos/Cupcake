@@ -53,8 +53,6 @@ public class Index extends HttpServlet {
 
         try {
             OrderFacade.addOrder(order, connectionPool);
-        } catch (SQLException e) {
-            e.printStackTrace();
         } catch (DatabaseException e) {
             e.printStackTrace();
         }
