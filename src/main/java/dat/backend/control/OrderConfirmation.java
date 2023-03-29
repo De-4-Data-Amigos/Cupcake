@@ -49,11 +49,13 @@ public class OrderConfirmation extends HttpServlet {
                     user.setSaldo(user.getSaldo()-order.getTotalPrice());
                 }
             }
+
         } catch (DatabaseException e) {
             e.printStackTrace();
         }
 
-
+        order = new Order();
+        session.setAttribute("current_order", order);
 
         request.getRequestDispatcher("orderconfirmation.jsp").forward(request,response);
 
