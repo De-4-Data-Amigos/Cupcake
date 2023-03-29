@@ -86,8 +86,8 @@
                         <em><p><strong>OBS!</strong> - Hvis din saldo er positiv, så vil denne blive brugt som primær
                             betalingsform</p></em>
 
-                            Her er din nye saldo efter dette køb: <u>
-                            <strong> ${sessionScope.user.saldo - sessionScope.current_order.totalPrice}</u>,-</strong>
+                            Her er din nye saldo efter dette køb:
+                            <strong><u> ${sessionScope.user.saldo - sessionScope.current_order.totalPrice}</u>,- </strong>
                         </c:if><br/>
 
 
