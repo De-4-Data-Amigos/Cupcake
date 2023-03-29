@@ -21,20 +21,23 @@
 
                         <h2>Her er din bestilling - tak fordi du køber lokalt!</h2>
                         <form method="post">
-                            <table class="table table-striped mt-4" style="color: #6f42c1">
+                            <table class="table table-striped mt-4">
                                 <thead>
                                 <tr>
-                                    <td class="text-start align-middle"> Cupcake
+                                    <td class="text-start align-middle" style="color: #6f42c1"><h5>Cupcake</h5>
                                     </td>
-                                    <td class="text-center align-middle">Top</td>
-                                    <td class="text-center align-middle">Bottom</td>
-                                    <td class="text-center align-middle">Pris</td>
+                                    <td class="text-center align-middle" style="color: #6f42c1"><h5>Top</h5>
+                                    </td>
+                                    <td class="text-center align-middle" style="color: #6f42c1"><h5>Bottom</h5>
+                                    </td>
+                                    <td class="text-center align-middle" style="color: #6f42c1"><h5>Pris</h5>
+                                    </td>
                                     <td class="text-end"> </td>
                                 </tr>
                                 </thead>
                                 <c:forEach var="cupcake" items="${sessionScope.current_order.cupcakes}" varStatus="loop">
                                         <tr>
-                                            <td class="text-start align-middle"> Cupcake  </td>
+                                            <td class="text-start align-middle"> Cupcake #${loop.count} </td>
                                             <td class="text-center align-middle">${cupcake.cupcakeTopFlavor}</td>
                                             <td class="text-center align-middle">${cupcake.cupcakeBottomFlavor}</td>
                                             <td class="text-center align-middle">${cupcake.price} kr. </td>
@@ -81,18 +84,39 @@
 
 
                     </div>
-
-
                     <div class="h-48 p-5 bg-light border rounded-3 mt-2">
-                        <h5>Pris:${sessionScope.current_order.totalPrice} kr. </h5>
-                        <h5>Moms udgør:${sessionScope.current_order.totalPrice*0.20} kr. </h5>
-                        <div class="spacer bg-dark border-2 border-top border-dark"></div>
-                        <h5>At betale: ${sessionScope.current_order.totalPrice} kr. </h5>
 
+                        <ul class="list-group mb-3">
+                            <li class="list-group-item d-flex justify-content-between lh-sm">
+                                <div>
+                                    <h2 class="my-0">Betalingsoversigt</h2>
+                                </div>
+                            </li>
 
-                        <form method="get" action="orderconfirmation">
-                            <button type="submit" class="btn btn-success">Bekræft bestilling</button>
-                        </form>
+                            <li class="list-group-item d-flex justify-content-between lh-sm">
+                                <div>
+                                    <h6 class="my-0">Pris </h6>
+                                </div>
+                                <span class="text-muted">${sessionScope.current_order.totalPrice},-</span>
+                            </li>
+
+                            <li class="list-group-item d-flex justify-content-between lh-sm">
+                                <div>
+                                    <h6 class="my-0">Heraf moms</h6>
+                                </div>
+                                <span class="text-muted">${sessionScope.current_order.totalPrice*0.20},-</span>
+                            </li>
+
+                            <li class="list-group-item d-flex justify-content-between lh-sm">
+                                <div>
+                                <span>Pris i alt (inkl. moms)</span>
+                                </div>
+                                <strong>${sessionScope.current_order.totalPrice},-</strong>
+                            </li>
+                        </ul>
+                            <form method="get" action="orderconfirmation">
+                                <button type="submit" class="btn btn-success">Bekræft bestilling</button>
+                            </form>
                     </div>
 
 

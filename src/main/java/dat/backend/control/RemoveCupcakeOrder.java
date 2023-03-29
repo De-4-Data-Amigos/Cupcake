@@ -21,8 +21,7 @@ public class RemoveCupcakeOrder extends HttpServlet {
 
 
     @Override
-    public void init() throws ServletException
-    {
+    public void init() throws ServletException {
         this.connectionPool = ApplicationStart.getConnectionPool();
     }
 
@@ -39,7 +38,7 @@ public class RemoveCupcakeOrder extends HttpServlet {
         int index = Integer.parseInt(request.getParameter("index"));
 
         HttpSession session = request.getSession();
-        Order order = (Order)session.getAttribute("current_order");
+        Order order = (Order) session.getAttribute("current_order");
 
 
         order.removeCupcake(index);

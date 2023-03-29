@@ -20,11 +20,14 @@
                 <form method="post">
                     <table class="table table-striped mt-4">
                         <thead>
+
                         <tr>
-                            <td class="text-start align-middle"> Cupcake
+                            <td class="text-start align-middle" style="color: #6f42c1"><h5>Cupcake</h5>
                             </td>
-                            <td class="text-center align-middle">Top</td>
-                            <td class="text-center align-middle">Bottom</td>
+                            <td class="text-center align-middle" style="color: #6f42c1"><h5>Top</h5>
+                            </td>
+                            <td class="text-center align-middle" style="color: #6f42c1"><h5>Bottom</h5>
+                            </td>
                         </tr>
 
                         </thead>
@@ -40,7 +43,7 @@
                     </table>
                 </form>
 
-                <h5><em>En ordrebekræftelse er sendt til din email.</em></h5>
+                <h5><em>En ordrebekræftelse er sendt til din email - såfremt denne er brugt ved bestilling.</em></h5>
 
             </div>
 
@@ -57,11 +60,13 @@
 
 
             <div class="h-48 p-5 bg-light border rounded-3 mt-2">
+               <div class="list-group-item d-flex justify-content-between lh-sm">
                 <h5>Vidste du.. </h5>
                 <h7>.. at Olsker Cupcakes er et lokalt ejet og bæredygtigt bageri?</h7><br>
                 <h7>.. at vi er et sjette generations bageri med rødder tilbage til forrige århundrede?</h7><br>
                 <h7>.. at vi udelukkende bruger økologiske råvarer til vores cupcakes?</h7>
 
+            </div>
             </div>
 
 
