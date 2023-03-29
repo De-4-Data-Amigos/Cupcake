@@ -35,9 +35,10 @@ public class Admin extends HttpServlet {
                 try {
                     users = AdminFacade.getAllUsers(connectionPool);
                     orders = OrderFacade.getAllOrders(connectionPool);
-                } catch (DatabaseException e) {
-                    request.getRequestDispatcher("error").forward(request, response);
-                    e.printStackTrace();
+                } catch (DatabaseException e)
+                {
+                    request.setAttribute("errormessage", e.getMessage());
+                    request.getRequestDispatcher("error.jsp").forward(request, response);
                 }
                 request.setAttribute("userList", users);
                 request.setAttribute("orderList",orders);
@@ -69,8 +70,10 @@ public class Admin extends HttpServlet {
             User user = AdminFacade.getUserFromUsername(username, connectionPool);
 
             AdminFacade.changeSaldo(user, money, connectionPool);
-        } catch (DatabaseException e) {
-            e.printStackTrace();
+        } catch (DatabaseException e)
+        {
+            request.setAttribute("errormessage", e.getMessage());
+            request.getRequestDispatcher("error.jsp").forward(request, response);
         }
 
 

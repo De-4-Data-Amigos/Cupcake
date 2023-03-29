@@ -39,8 +39,10 @@ public class Index extends HttpServlet {
         try {
             allTops = CupcakeTopFacade.getAllTops(connectionPool);
             allBottoms = CupcakeBottomFacade.getAllBottoms(connectionPool);
-        } catch (DatabaseException e) {
-            e.printStackTrace();
+        } catch (DatabaseException e)
+        {
+            request.setAttribute("errormessage", e.getMessage());
+            request.getRequestDispatcher("error.jsp").forward(request, response);
         }
 
         HttpSession session = request.getSession();
@@ -70,8 +72,10 @@ public class Index extends HttpServlet {
         CupcakeBottom bottom = null;
         try {
             bottom = CupcakeBottomFacade.getButtomFromId(bottomId, connectionPool);
-        } catch (DatabaseException e) {
-            e.printStackTrace();
+        } catch (DatabaseException e)
+        {
+            request.setAttribute("errormessage", e.getMessage());
+            request.getRequestDispatcher("error.jsp").forward(request, response);
         }
         request.setAttribute("cupcake_bottom", bottom);
 

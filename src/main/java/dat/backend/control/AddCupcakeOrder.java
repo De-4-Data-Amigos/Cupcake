@@ -56,7 +56,8 @@ public class AddCupcakeOrder extends HttpServlet
         }
         catch (DatabaseException e)
         {
-            e.printStackTrace();
+            request.setAttribute("errormessage", e.getMessage());
+            request.getRequestDispatcher("error.jsp").forward(request, response);
         }
         int totalPrice = cupcakeTop.getPrice() + cupcakeBottom.getPrice();
 

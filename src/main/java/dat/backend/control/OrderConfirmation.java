@@ -43,17 +43,19 @@ public class OrderConfirmation extends HttpServlet {
         int orderID;
         try {
             orderID = OrderFacade.addOrder(order, connectionPool);
-            for (CupcakeOrder c: cupcakes) {
+            for (CupcakeOrder c : cupcakes) {
                 CupcakeOrderFacade.addCupcakeOrderToOrder(orderID, c.getPrice(), c.getCupcakeTopId(), c.getCupcakeBottomId(), connectionPool);
             }
-            if(user != null){
-                if(user.getSaldo()-order.getTotalPrice() >= 0) {
+            if (user != null) {
+                if (user.getSaldo() - order.getTotalPrice() >= 0) {
                     AdminFacade.changeSaldo(user, -order.getTotalPrice(), connectionPool);
-                    user.setSaldo(user.getSaldo()-order.getTotalPrice());
+                    user.setSaldo(user.getSaldo() - order.getTotalPrice());
                 }
             }
-        } catch (DatabaseException e) {
-            e.printStackTrace();
+        } catch (DatabaseException e)
+        {
+            request.setAttribute("errormessage", e.getMessage());
+            request.getRequestDispatcher("error.jsp").forward(request, response);
         }
         session.setAttribute("confirm_order", order);
         order = new Order();

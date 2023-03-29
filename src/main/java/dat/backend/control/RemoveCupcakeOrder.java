@@ -35,8 +35,11 @@ public class RemoveCupcakeOrder extends HttpServlet {
         try {
             CupcakeOrderFacade.removeCupcakeOrdersById(orderId, connectionPool);
             OrderFacade.deleteOrder(orderId, connectionPool);
-        } catch (DatabaseException e) {
-            e.printStackTrace();
+        }
+        catch (DatabaseException e)
+        {
+            request.setAttribute("errormessage", e.getMessage());
+            request.getRequestDispatcher("error.jsp").forward(request, response);
         }
 
 
