@@ -48,15 +48,6 @@ public class Index extends HttpServlet {
         session.setAttribute("cupcakebottoms", allBottoms);
         session.setAttribute("current_order", currentOrder);
 
-
-        Order order = new Order(1,200,Timestamp.valueOf(LocalDateTime.now()), "user",false,1);
-
-        try {
-            OrderFacade.addOrder(order, connectionPool);
-        } catch (DatabaseException e) {
-            e.printStackTrace();
-        }
-
         request.getRequestDispatcher("index.jsp").forward(request,response);
 
 

@@ -63,7 +63,7 @@ public class CupcakeOrderMapper {
     }
     static boolean addCupcakeOrderToOrder(int order_id, int price, int top_id, int bottom_id, ConnectionPool connectionPool) throws DatabaseException
     {
-        String sql = "INSERT INTO table_name (order_id, price, cupcake_top_id, cupcake_bottom_id) VALUES (?,?,?,?); ";
+        String sql = "INSERT INTO cupcake_order (order_id, price, cupcake_top_id, cupcake_bottom_id) VALUES (?,?,?,?); ";
         boolean retBool = false;
         try(Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
