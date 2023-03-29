@@ -1,10 +1,13 @@
 package dat.backend.control;
 
 import dat.backend.model.config.ApplicationStart;
+import dat.backend.model.entities.Order;
 import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
 import dat.backend.model.persistence.AdminFacade;
 import dat.backend.model.persistence.ConnectionPool;
+import dat.backend.model.persistence.OrderFacade;
+import dat.backend.model.persistence.OrderMapper;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -28,13 +31,16 @@ public class Admin extends HttpServlet {
         if (user != null) {
             if (user.getRole().equalsIgnoreCase("admin")) {
                 List<User> users = null;
+                List<Order> orders = null;
                 try {
                     users = AdminFacade.getAllUsers(connectionPool);
+                    orders = OrderFacade.getAllOrders(connectionPool);
                 } catch (DatabaseException e) {
                     request.getRequestDispatcher("error").forward(request, response);
                     e.printStackTrace();
                 }
                 request.setAttribute("userList", users);
+                request.setAttribute("orderList",orders);
                 request.getRequestDispatcher("WEB-INF/admin.jsp").forward(request, response);
 
             }
@@ -66,6 +72,8 @@ public class Admin extends HttpServlet {
         } catch (DatabaseException e) {
             e.printStackTrace();
         }
+
+
 
 
         response.sendRedirect("admin");
