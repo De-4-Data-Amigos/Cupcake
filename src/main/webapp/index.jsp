@@ -16,10 +16,9 @@
 
     <jsp:body>
 
+
      <p class="d-inline"><em> Herunder sammensætter du din favorit cupcake:</em></p><br><br>
 
-        <!-- <a style="float:right" href="shoppingcart"> <img class="float-right" src="images/shoppingcartlogo.png"
-        width="48" height="48"> </a> -->
         <div style="display: flex; justify-content: center;">
         <div><form method="post">
 
