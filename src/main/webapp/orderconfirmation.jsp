@@ -43,7 +43,7 @@
                     </table>
                 </form>
 
-                <h5><em>En ordrebekræftelse er sendt til din email.</em></h5>
+                <h5><em>En ordrebekræftelse er sendt til din email - såfremt denne er brugt ved bestilling.</em></h5>
 
             </div>
 
