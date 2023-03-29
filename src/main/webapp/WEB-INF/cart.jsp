@@ -115,7 +115,7 @@
                                 <div>
                                     <h6 class="my-0">Heraf moms</h6>
                                 </div>
-                                <span class="text-muted">${sessionScope.current_order.totalPrice*0.20},-</span>
+                                <span class="text-muted">${sessionScope.current_order.totalPriceVAT} ,-</span>
                             </li>
 
                             <li class="list-group-item d-flex justify-content-between lh-sm">
