@@ -22,18 +22,24 @@
         width="48" height="48"> </a> -->
         <div style="display: flex; justify-content: center;">
         <div><form method="post">
+
+            <select class="form-select" style="color: #6f42c1; width: 600px; text-align-last: center;" aria-label="Default select example" name="top">
+                <option selected>Vælg en top</option>
+                <c:forEach var="top" items="${sessionScope.cupcaketops}">
+                    <option value="${top.cupcakeTopId}">${top.flavor} ${top.price},-</option>
+                </c:forEach>
+            </select>
+
+
             <select class="form-select" style="color: #6f42c1; width: 600px; text-align-last: center;" aria-label="Default select example" name="bottom">
                     <option selected>Vælg en bund</option>
                     <c:forEach var="bottom" items="${sessionScope.cupcakebottoms}">
                         <option value="${bottom.cupcakeBottomId}">${bottom.flavor} ${bottom.price},-</option>
                     </c:forEach>
                 </select>
-            <select class="form-select" style="color: #6f42c1; width: 600px; text-align-last: center;" aria-label="Default select example" name="top">
-                    <option selected>Vælg en top</option>
-                    <c:forEach var="top" items="${sessionScope.cupcaketops}">
-                        <option value="${top.cupcakeTopId}">${top.flavor} ${top.price},-</option>
-                    </c:forEach>
-                </select>
+
+
+
 
 
                 <div class="btn-toolbar justify-content-between mt-4" role="toolbar">
