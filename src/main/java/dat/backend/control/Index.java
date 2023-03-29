@@ -2,7 +2,6 @@ package dat.backend.control;
 
 import dat.backend.model.config.ApplicationStart;
 import dat.backend.model.entities.CupcakeBottom;
-import dat.backend.model.entities.CupcakeOrder;
 import dat.backend.model.entities.CupcakeTop;
 import dat.backend.model.entities.Order;
 import dat.backend.model.exceptions.DatabaseException;
@@ -53,7 +52,7 @@ public class Index extends HttpServlet {
         Order order = new Order(1,200,Timestamp.valueOf(LocalDateTime.now()), "user",false,1);
 
         try {
-            OrderFacade.addOrder(connectionPool,order);
+            OrderFacade.addOrder(order, connectionPool);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (DatabaseException e) {

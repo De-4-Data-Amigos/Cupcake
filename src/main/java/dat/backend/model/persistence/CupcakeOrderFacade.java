@@ -15,4 +15,8 @@ public class CupcakeOrderFacade
     {
         return CupcakeOrderMapper.getCupcakeOrderFromOrderId(order_id, connectionPool);
     }
+    public static boolean addCupcakeOrderToOrder(int order_id, int price, int top_id, int bottom_id, ConnectionPool connectionPool) throws DatabaseException
+    {
+        return CupcakeOrderMapper.addCupcakeOrderToOrder(order_id, price, top_id, bottom_id, connectionPool);
+    }
 }

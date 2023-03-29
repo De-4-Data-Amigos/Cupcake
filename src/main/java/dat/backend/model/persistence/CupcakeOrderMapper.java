@@ -61,4 +61,24 @@ public class CupcakeOrderMapper {
         }
         return cupcakeOrder;
     }
+    static boolean addCupcakeOrderToOrder(int order_id, int price, int top_id, int bottom_id, ConnectionPool connectionPool) throws DatabaseException
+    {
+        String sql = "INSERT INTO table_name (order_id, price, cupcake_top_id, cupcake_bottom_id) VALUES (?,?,?,?); ";
+        boolean retBool = false;
+        try(Connection connection = connectionPool.getConnection()) {
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setInt(1, order_id);
+                ps.setInt(2, price);
+                ps.setInt(3, top_id);
+                ps.setInt(4, bottom_id);
+                int rowsAffected = ps.executeUpdate();
+                if (rowsAffected == 1){
+                    retBool = true;
+                }
+            }
+        } catch (SQLException e){
+            throw new DatabaseException(e, "Fejl i tilgangen til databasen");
+        }
+        return retBool;
+    }
 }

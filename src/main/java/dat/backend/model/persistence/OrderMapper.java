@@ -38,11 +38,11 @@ public class OrderMapper {
         return orderList;
     }
 
-    static int addOrder(ConnectionPool connectionPool, Order order) throws SQLException, DatabaseException {
+    static int addOrder(Order order, ConnectionPool connectionPool) throws DatabaseException {
         String sql = "INSERT INTO orders (username, order_amount, total_price) values (?,?,?);";
-
+        int orderId = 0;
         try (Connection connection = connectionPool.getConnection()) {
-            int orderId = 0;
+
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 ps.setString(1, order.getUsername());
                 ps.setInt(2, order.getOrderAmount());
@@ -53,13 +53,11 @@ public class OrderMapper {
                 if(rs.next()){
                     orderId = rs.getInt(1);
                 }
-            } catch (SQLException ex) {
-                throw new DatabaseException(ex, "Could not insert item into database");
             }
-
-            return orderId;
+        } catch (SQLException ex) {
+            throw new DatabaseException(ex, "Could not insert item into database");
         }
-
+        return orderId;
     }
     
 }

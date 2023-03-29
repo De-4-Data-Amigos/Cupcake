@@ -1,13 +1,20 @@
 package dat.backend.control;
 
 import dat.backend.model.config.ApplicationStart;
+import dat.backend.model.entities.CupcakeOrder;
 import dat.backend.model.entities.Order;
+import dat.backend.model.entities.User;
+import dat.backend.model.exceptions.DatabaseException;
+import dat.backend.model.persistence.AdminFacade;
 import dat.backend.model.persistence.ConnectionPool;
+import dat.backend.model.persistence.CupcakeOrderFacade;
+import dat.backend.model.persistence.OrderFacade;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "OrderConfirmation", value = "/orderconfirmation")
 public class OrderConfirmation extends HttpServlet {
@@ -24,12 +31,33 @@ public class OrderConfirmation extends HttpServlet {
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        Order order = (Order)session.getAttribute("current_order");
+        User user = (User)session.getAttribute("user");
+
+        List<CupcakeOrder> cupcakes = order.getCupcakes();
+
+        int orderID;
+        try {
+            orderID = OrderFacade.addOrder(order, connectionPool);
+            for (CupcakeOrder c: cupcakes) {
+                CupcakeOrderFacade.addCupcakeOrderToOrder(orderID, c.getPrice(), c.getCupcakeTopId(), c.getCupcakeBottomId(), connectionPool);
+            }
+            if(user != null){
+                AdminFacade.changeSaldo(user, -order.getTotalPrice(), connectionPool);
+            }
+        } catch (DatabaseException e) {
+            e.printStackTrace();
+        }
+
+
+
         request.getRequestDispatcher("orderconfirmation.jsp").forward(request,response);
-        //response.sendRedirect("orderconfirmation.jsp");
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect("orderconfirmation.jsp");
+        request.getRequestDispatcher("orderconfirmation.jsp").forward(request,response);
     }
 }

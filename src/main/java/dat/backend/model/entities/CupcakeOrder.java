@@ -4,10 +4,7 @@ import dat.backend.model.config.ApplicationStart;
 import dat.backend.model.exceptions.DatabaseException;
 import dat.backend.model.persistence.ConnectionPool;
 import dat.backend.model.persistence.CupcakeBottomFacade;
-import dat.backend.model.persistence.CupcakeBottomMapper;
 import dat.backend.model.persistence.CupcakeTopFacade;
-
-import java.sql.Timestamp;
 
 public class CupcakeOrder {
     private int cupcakeOrderId;

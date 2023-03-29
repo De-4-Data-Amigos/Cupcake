@@ -10,7 +10,6 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 @WebServlet(name = "Admin", value = "/admin")
@@ -48,9 +47,9 @@ public class Admin extends HttpServlet {
         int money = Integer.parseInt(request.getParameter("money"));
 
         try {
-            User user = AdminFacade.getUserFromUsername(connectionPool,username);
+            User user = AdminFacade.getUserFromUsername(username, connectionPool);
 
-            AdminFacade.addMoney(connectionPool, user, money);
+            AdminFacade.changeSaldo(user, money, connectionPool);
         } catch (DatabaseException e) {
             e.printStackTrace();
         }

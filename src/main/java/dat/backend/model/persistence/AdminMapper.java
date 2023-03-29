@@ -1,7 +1,5 @@
 package dat.backend.model.persistence;
 
-import dat.backend.model.entities.CupcakeBottom;
-import dat.backend.model.entities.Order;
 import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
 
@@ -10,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdminMapper {
-    static void addMoney(ConnectionPool connectionPool, User user, int money) throws DatabaseException {
+    static void changeSaldo(User user, int money, ConnectionPool connectionPool) throws DatabaseException {
         String sql = "UPDATE user SET saldo = (saldo + ?) WHERE username = ?;";
 
         try (Connection connection = connectionPool.getConnection()) {
@@ -51,7 +49,7 @@ public class AdminMapper {
         return userList;
     }
 
-     static User getUserFromUsername(ConnectionPool connectionPool, String username) throws DatabaseException
+     static User getUserFromUsername(String username, ConnectionPool connectionPool) throws DatabaseException
     {
         String sql = "select * from user where username = ?";
         User user = null;
