@@ -4,11 +4,11 @@
 <%@page errorPage="../error.jsp" isErrorPage="false" %>
 <t:pagetemplate>
     <jsp:attribute name="header">
-         Din bestilling
+         Admin menu
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-        Bestillingsliste:
+        Admin menu
     </jsp:attribute>
 
     <jsp:body>
