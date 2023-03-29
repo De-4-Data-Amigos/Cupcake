@@ -32,29 +32,29 @@
                                     </td>
                                     <td class="text-center align-middle" style="color: #6f42c1"><h5>Pris</h5>
                                     </td>
-                                    <td class="text-end"> </td>
+                                    <td class="text-end"></td>
                                 </tr>
                                 </thead>
-                                <c:forEach var="cupcake" items="${sessionScope.current_order.cupcakes}" varStatus="loop">
-                                        <tr>
-                                            <td class="text-start align-middle"> Cupcake #${loop.count} </td>
-                                            <td class="text-center align-middle">${cupcake.cupcakeTopFlavor}</td>
-                                            <td class="text-center align-middle">${cupcake.cupcakeBottomFlavor}</td>
-                                            <td class="text-center align-middle">${cupcake.price} kr. </td>
-                                            <td class="text-end">
+                                <c:forEach var="cupcake" items="${sessionScope.current_order.cupcakes}"
+                                           varStatus="loop">
+                                    <tr>
+                                        <td class="text-start align-middle"> Cupcake #${loop.count} </td>
+                                        <td class="text-center align-middle">${cupcake.cupcakeTopFlavor}</td>
+                                        <td class="text-center align-middle">${cupcake.cupcakeBottomFlavor}</td>
+                                        <td class="text-center align-middle">${cupcake.price} kr.</td>
+                                        <td class="text-end">
 
 
-                                                <button formaction="removecupcakeorder" type="submit"
-                                                        class="ms-2 btn btn-primary btm-sm col-5" name="index"
-                                                        value="${loop.index}">Fjern
+                                            <button formaction="removecupcakeorder" type="submit"
+                                                    class="ms-2 btn btn-primary btm-sm col-5" name="index"
+                                                    value="${loop.index}">Fjern
 
-                                                </button>
-                                            </td>
-                                        </tr>
+                                            </button>
+                                        </td>
+                                    </tr>
                                 </c:forEach>
                             </table>
                         </form>
-
 
 
                     </div>
@@ -80,9 +80,17 @@
 
                         <c:if test="${sessionScope.user != null}">
                             Her er din nuværende saldo: <strong>${sessionScope.user.saldo},- </strong>
+                        </c:if><br/>
 
-                        <em> <p> <strong>OBS!</strong> - Hvis din saldo er positiv, så vil denne blive brugt som primær betalingsform</p></em>
-                            Her er din nye saldo efter dette køb: <u> <strong> ${sessionScope.user.saldo - sessionScope.current_order.totalPrice}</u>,-</strong>
+
+                        <em><p><strong>OBS!</strong> - Hvis din saldo er positiv, så vil denne blive brugt som primær
+                            betalingsform</p></em>
+
+                        <c:if test="${(sessionScope.user.saldo - 0) <= 0}">
+                            <em><p><strong>OBS!</strong> - Hvis du har en saldo, bruger vi den først</p></em>
+
+                            Her er din nye saldo efter dette køb: <u>
+                            <strong> ${sessionScope.user.saldo - sessionScope.current_order.totalPrice}</u>,-</strong>
                         </c:if><br/>
 
 
@@ -107,21 +115,20 @@
                                 <div>
                                     <h6 class="my-0">Heraf moms</h6>
                                 </div>
-                                <span class="text-muted">${sessionScope.current_order.totalPrice*0.20},-</span>
+                                <span class="text-muted">${sessionScope.current_order.totalPriceVAT} ,-</span>
                             </li>
 
                             <li class="list-group-item d-flex justify-content-between lh-sm">
                                 <div>
-                                <span>Pris i alt (inkl. moms)</span>
+                                    <span>Pris i alt (inkl. moms)</span>
                                 </div>
                                 <strong>${sessionScope.current_order.totalPrice},-</strong>
                             </li>
                         </ul>
-                            <form method="get" action="orderconfirmation">
-                                <button type="submit" class="btn btn-success">Bekræft bestilling</button>
-                            </form>
+                        <form method="get" action="orderconfirmation">
+                            <button type="submit" class="btn btn-success">Bekræft bestilling</button>
+                        </form>
                     </div>
-
 
 
                 </div>

@@ -60,17 +60,12 @@
 
 
             <div class="h-48 p-5 bg-light border rounded-3 mt-2">
-               <div class="list-group-item d-flex justify-content-between lh-sm">
                 <h5>Vidste du.. </h5>
                 <h7>.. at Olsker Cupcakes er et lokalt ejet og bæredygtigt bageri?</h7><br>
                 <h7>.. at vi er et sjette generations bageri med rødder tilbage til forrige århundrede?</h7><br>
                 <h7>.. at vi udelukkende bruger økologiske råvarer til vores cupcakes?</h7>
 
             </div>
-            </div>
-
-
-
         </div>
     </div>
 
