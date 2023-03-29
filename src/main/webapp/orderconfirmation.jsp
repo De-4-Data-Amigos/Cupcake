@@ -20,11 +20,14 @@
                 <form method="post">
                     <table class="table table-striped mt-4">
                         <thead>
+
                         <tr>
-                            <td class="text-start align-middle"> Cupcake
+                            <td class="text-start align-middle" style="color: #6f42c1"><h5>Cupcake</h5>
                             </td>
-                            <td class="text-center align-middle">Top</td>
-                            <td class="text-center align-middle">Bottom</td>
+                            <td class="text-center align-middle" style="color: #6f42c1"><h5>Top</h5>
+                            </td>
+                            <td class="text-center align-middle" style="color: #6f42c1"><h5>Bottom</h5>
+                            </td>
                         </tr>
 
                         </thead>
