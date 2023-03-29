@@ -33,6 +33,10 @@ public class OrderConfirmation extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         Order order = (Order)session.getAttribute("current_order");
+        if(order.getOrderAmount() == 0){
+            request.getRequestDispatcher("index.jsp").forward(request,response);
+            return;
+        }
         User user = (User)session.getAttribute("user");
 
         List<CupcakeOrder> cupcakes = order.getCupcakes();
