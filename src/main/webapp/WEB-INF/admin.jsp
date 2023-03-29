@@ -29,7 +29,7 @@
 
         </form>
 
-        <form method="get">
+        <form method="post">
             <table class="table table-striped mt-4">
                 <thead>
                 <tr>
