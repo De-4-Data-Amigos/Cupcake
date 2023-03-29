@@ -25,17 +25,21 @@ public class Admin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("user");
-        if (user.getRole().equalsIgnoreCase("admin")) {
-            List<User> users = null;
-            try {
-                users = AdminFacade.getAllUsers(connectionPool);
-            } catch (DatabaseException e) {
-                e.printStackTrace();
-            }
-            request.setAttribute("userList", users);
-            request.getRequestDispatcher("WEB-INF/admin.jsp").forward(request, response);
+        if (user != null) {
+            if (user.getRole().equalsIgnoreCase("admin")) {
+                List<User> users = null;
+                try {
+                    users = AdminFacade.getAllUsers(connectionPool);
+                } catch (DatabaseException e) {
+                    request.getRequestDispatcher("error").forward(request, response);
+                    e.printStackTrace();
+                }
+                request.setAttribute("userList", users);
+                request.getRequestDispatcher("WEB-INF/admin.jsp").forward(request, response);
 
+            }
         }
+
         request.setAttribute("besked", "du er ikke en admin");
         request.getRequestDispatcher("index").forward(request, response);
 
