@@ -44,7 +44,9 @@ public class OrderConfirmation extends HttpServlet {
                 CupcakeOrderFacade.addCupcakeOrderToOrder(orderID, c.getPrice(), c.getCupcakeTopId(), c.getCupcakeBottomId(), connectionPool);
             }
             if(user != null){
-                AdminFacade.changeSaldo(user, -order.getTotalPrice(), connectionPool);
+                if(user.getSaldo()-order.getTotalPrice() >= 0) {
+                    AdminFacade.changeSaldo(user, -order.getTotalPrice(), connectionPool);
+                }
             }
         } catch (DatabaseException e) {
             e.printStackTrace();
