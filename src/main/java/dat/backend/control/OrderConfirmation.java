@@ -46,6 +46,7 @@ public class OrderConfirmation extends HttpServlet {
             if(user != null){
                 if(user.getSaldo()-order.getTotalPrice() >= 0) {
                     AdminFacade.changeSaldo(user, -order.getTotalPrice(), connectionPool);
+                    user.setSaldo(user.getSaldo()-order.getTotalPrice());
                 }
             }
         } catch (DatabaseException e) {
