@@ -19,4 +19,7 @@ public class CupcakeOrderFacade
     {
         return CupcakeOrderMapper.addCupcakeOrderToOrder(order_id, price, top_id, bottom_id, connectionPool);
     }
+    public static void removeCupcakeOrdersById(int order_id, ConnectionPool connectionPool) throws DatabaseException {
+        CupcakeOrderMapper.removeCupcakeOrdersById(order_id, connectionPool);
+    }
 }

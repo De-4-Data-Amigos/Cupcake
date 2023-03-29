@@ -82,7 +82,7 @@
                             Her er din nuværende saldo: <strong>${sessionScope.user.saldo},- </strong>
                         </c:if><br/>
 
-                        <c:if test="${sessionScope.user.saldo >= 0}">
+                        <c:if test="${sessionScope.user.saldo > 0}">
                         <em><p><strong>OBS!</strong> - Hvis din saldo er positiv, så vil denne blive brugt som primær
                             betalingsform</p></em>
 

@@ -72,6 +72,7 @@ public class Order {
         orderAmount--;
     }
 
+
     public String getTotalPriceVAT()
     {
        return String.format("%.2f", totalPrice * 0.2);

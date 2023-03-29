@@ -57,7 +57,14 @@
                         <td class="text-center align-middle">${order.username}</td>
                         <td class="text-center align-middle">${order.orderActive}</td>
                         <td class="text-end align-middle">${order.orderAmount}</td>
+                        <td class="text-end">
 
+                            <button formaction="removecupcakeorder" type="submit"
+                                    class="ms-2 btn btn-primary btm-sm col-5" name="orderid"
+                                    value="${order.orderId}">Fjern
+
+                            </button>
+                        </td>
                     </tr>
                 </c:forEach>
             </table>

@@ -50,7 +50,7 @@ public class OrderMapper {
                 int rowsAffected = ps.executeUpdate();
                 ResultSet rs = ps.getGeneratedKeys();
 
-                if(rs.next()){
+                if (rs.next()) {
                     orderId = rs.getInt(1);
                 }
             }
@@ -59,6 +59,20 @@ public class OrderMapper {
         }
         return orderId;
     }
-    
+
+    static void deleteOrder(int orderId, ConnectionPool connectionPool) throws DatabaseException {
+        String sql = "DELETE FROM orders WHERE order_id = ?;";
+
+        try (Connection connection = connectionPool.getConnection()) {
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setInt(1, orderId);
+                ps.executeUpdate();
+            }
+        } catch (SQLException e) {
+            throw new DatabaseException(e, "Fejl i tilgangen til databasen");
+        }
+    }
+
+
 }
 

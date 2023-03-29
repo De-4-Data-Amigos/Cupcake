@@ -1,6 +1,5 @@
 package dat.backend.model.persistence;
 
-import dat.backend.model.entities.CupcakeBottom;
 import dat.backend.model.entities.CupcakeOrder;
 import dat.backend.model.exceptions.DatabaseException;
 
@@ -80,5 +79,17 @@ public class CupcakeOrderMapper {
             throw new DatabaseException(e, "Fejl i tilgangen til databasen");
         }
         return retBool;
+    }
+    static void removeCupcakeOrdersById(int order_id, ConnectionPool connectionPool) throws DatabaseException {
+        String sql = "DELETE FROM cupcake_order WHERE order_id = ?;";
+
+        try(Connection connection = connectionPool.getConnection()) {
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setInt(1, order_id);
+                ps.executeUpdate();
+            }
+        } catch (SQLException e) {
+            throw new DatabaseException(e, "Fejl i tilgangen til databasen");
+        }
     }
 }

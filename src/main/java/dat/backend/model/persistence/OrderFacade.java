@@ -13,4 +13,7 @@ public class OrderFacade {
 
         return OrderMapper.getAllOrders(connectionPool);
     }
+    public static void deleteOrder(int orderId, ConnectionPool connectionPool) throws DatabaseException {
+        OrderMapper.deleteOrder(orderId, connectionPool);
+    }
 }
