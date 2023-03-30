@@ -1,8 +1,8 @@
 package dat.backend.control;
 
 import dat.backend.model.config.ApplicationStart;
-import dat.backend.model.exceptions.DatabaseException;
-import dat.backend.model.persistence.*;
+import dat.backend.model.entities.Order;
+import dat.backend.model.persistence.ConnectionPool;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -12,7 +12,6 @@ import java.io.IOException;
 @WebServlet(name = "RemoveCupcakeOrder", value = "/removecupcakeorder")
 public class RemoveCupcakeOrder extends HttpServlet {
     private ConnectionPool connectionPool;
-
 
     @Override
     public void init() throws ServletException {
@@ -30,22 +29,14 @@ public class RemoveCupcakeOrder extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-        int orderId = Integer.parseInt(request.getParameter("orderid"));
+        int index = Integer.parseInt(request.getParameter("index"));
 
-        try {
-            CupcakeOrderFacade.removeCupcakeOrdersById(orderId, connectionPool);
-            OrderFacade.deleteOrder(orderId, connectionPool);
-        }
-        catch (DatabaseException e)
-        {
-            request.setAttribute("errormessage", e.getMessage());
-            request.getRequestDispatcher("error.jsp").forward(request, response);
-        }
+        HttpSession session = request.getSession();
 
+        Order order = (Order) session.getAttribute("current_order");
+        order.removeCupcake(index);
 
-
-
-        response.sendRedirect("admin");
+        response.sendRedirect("shoppingcart");
 
     }
 }
