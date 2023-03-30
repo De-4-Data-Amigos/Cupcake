@@ -70,6 +70,8 @@ public class Admin extends HttpServlet {
             User user = AdminFacade.getUserFromUsername(username, connectionPool);
 
             AdminFacade.changeSaldo(user, money, connectionPool);
+            user.setSaldo(user.getSaldo() + money);
+
         } catch (DatabaseException e)
         {
             request.setAttribute("errormessage", e.getMessage());
