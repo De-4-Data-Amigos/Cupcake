@@ -1,6 +1,7 @@
 package dat.backend.control;
 
 import dat.backend.model.config.ApplicationStart;
+import dat.backend.model.entities.Order;
 import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
 import dat.backend.model.persistence.ConnectionPool;
@@ -56,6 +57,9 @@ public class Register extends HttpServlet {
             session = request.getSession();
             session.setAttribute("user", user); // adding user object to session scope
             session.setAttribute("email",email);
+            Order order = (Order) session.getAttribute("current_order");
+            order.setUser(user);
+            Index.setOrder(order, session);
 
             // request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
             response.sendRedirect("index.jsp");

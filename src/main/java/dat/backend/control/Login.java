@@ -50,6 +50,8 @@ public class Login extends HttpServlet
             session.setAttribute("email", user.getEmail());
             Order order = (Order) session.getAttribute("current_order");
             order.setUser(user);
+            Index.setOrder(order, session);
+
             response.sendRedirect("index");
         }
         catch (DatabaseException e)
