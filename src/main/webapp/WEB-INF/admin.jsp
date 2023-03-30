@@ -41,7 +41,7 @@
                     </td>
                     <td class="text-center align-middle" style="color: #6f42c1"><h5>Username</h5>
                     </td>
-                    <td class="text-center align-middle" style="color: #6f42c1"><h5>Er order aktiv?</h5>
+                    <td class="text-center align-middle" style="color: #6f42c1"><h5>Er order hentet?</h5>
                     </td>
                     <td class="text-center align-middle" style="color: #6f42c1"><h5>Cupcake mængde</h5>
                     </td>
