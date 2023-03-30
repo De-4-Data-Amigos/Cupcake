@@ -46,7 +46,7 @@
 
 
                                             <button formaction="removecupcakeorder" type="submit"
-                                                    class="ms-2 btn btn-primary btm-sm col-5" name="index"
+                                                    class="ms-2 btn btn-primary btm-sm" name="index"
                                                     value="${loop.index}">Fjern
 
                                             </button>

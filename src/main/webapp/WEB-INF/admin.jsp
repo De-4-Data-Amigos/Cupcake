@@ -60,7 +60,7 @@
                         <td class="text-end">
 
                             <button formaction="removeorder" type="submit"
-                                    class="ms-2 btn btn-primary btm-sm col-5" name="orderid"
+                                    class="ms-2 btn btn-primary btm-sm" name="orderid"
                                     value="${order.orderId}">Fjern
 
                             </button>
