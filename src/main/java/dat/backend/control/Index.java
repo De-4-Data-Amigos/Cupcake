@@ -21,7 +21,7 @@ import java.util.List;
 public class Index extends HttpServlet {
 
     private ConnectionPool connectionPool;
-    private Order currentOrder;
+    private static Order currentOrder;
 
 
     @Override
@@ -48,11 +48,8 @@ public class Index extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("cupcaketops", allTops);
         session.setAttribute("cupcakebottoms", allBottoms);
-        session.setAttribute("current_order", currentOrder);
-
+        setOrder(currentOrder, session);
         request.getRequestDispatcher("index.jsp").forward(request,response);
-
-
     }
 
     @Override
@@ -85,6 +82,11 @@ public class Index extends HttpServlet {
         int topId = Integer.parseInt(topParameter);
 
 
+    }
+
+    public static void setOrder(Order order, HttpSession session){
+        currentOrder = order;
+        session.setAttribute("current_order", currentOrder);
     }
 
 }

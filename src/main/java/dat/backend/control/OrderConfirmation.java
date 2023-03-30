@@ -58,8 +58,9 @@ public class OrderConfirmation extends HttpServlet {
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
         session.setAttribute("confirm_order", order);
+        session.removeAttribute("current_order");
         order = new Order();
-        session.setAttribute("current_order", order);
+        Index.setOrder(order, session);
         request.getRequestDispatcher("orderconfirmation.jsp").forward(request,response);
 
     }

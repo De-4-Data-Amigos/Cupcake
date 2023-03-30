@@ -1,6 +1,8 @@
 package dat.backend.control;
 
+import com.mysql.cj.Session;
 import dat.backend.model.config.ApplicationStart;
+import dat.backend.model.entities.Order;
 import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
 import dat.backend.model.persistence.UserFacade;
@@ -46,6 +48,8 @@ public class Login extends HttpServlet
             session = request.getSession();
             session.setAttribute("user", user); // adding user object to session scope
             session.setAttribute("email", user.getEmail());
+            Order order = (Order) session.getAttribute("current_order");
+            order.setUser(user);
             response.sendRedirect("index");
         }
         catch (DatabaseException e)
